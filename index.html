@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mónica Magaña – Diputada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<a href="https://wa.me/5213318574935"
+   target="_blank"
+   style="position:fixed;
+          bottom:20px;
+          right:20px;
+          background:#25D366;
+          padding:15px;
+          border-radius:50%;
+          text-decoration:none;
+          z-index:9999;">
+
+   <img src="img/whats.png"
+        alt="WhatsApp"
+        style="width:30px;">
+</a>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">
+        <!-- REEMPLAZA src con tu logo del partido -->
+        <img src="img/icono.ico" alt="Logo Partido" class="logo-img" />
+        <span class="logo-text">Diputada Mónica Magaña</span>
+      </div>
+      <nav class="navbar-links">
+        <a href="#sobre-mi">Sobre Mí</a>
+        <a href="#logros">Logros</a>
+        <a href="#timeline">Trayectoria</a>
+        <a href="#ruleta">Ruleta</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#whatsapp" class="btn-nav">Escríbeme</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="inicio">
+    <!-- Video de fondo — reemplaza src con tu video -->
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="img\MónicaMVideo1.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Diputada Local · Jalisco</p>
+      <h1 class="hero-name">
+        <span class="name-first">MÓNICA</span>
+        <span class="name-last">MAGAÑA</span>
+      </h1>
+      <p class="hero-tagline">Comprometida con Jalisco,<br>trabajando para ti todos los días.</p>
+      <div class="hero-ctas">
+        <a href="#sobre-mi" class="btn-primary">Conóceme</a>
+        <a href="#logros" class="btn-secondary">Ver Logros</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SOBRE MÍ ═══════════════════════════ -->
+  <section class="about" id="sobre-mi">
+    <div class="about-inner">
+      <div class="about-image-wrap">
+        <!-- REEMPLAZA src con foto oficial de Mónica -->
+        <img src="img\acad.jpg" alt="Mónica Magaña" class="about-photo" />
+        <div class="about-photo-accent"></div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Sobre Mí</span>
+        <h2 class="section-title">Una voz cercana,<br>comprometida con Jalisco</h2>
+        <p class="about-body">
+          Soy orgullosamente zapopana, licenciada en Derecho por el ITESO y maestrante en George Washington University en Gobernanza estratégica y Comunicación Política.
+          En el año 2021 me convertí en la Diputada más votada de Jalisco,por el distrito 10. 
+          Voy por la vida con una consigna muy firme: cuando ponemos todas nuestras ganas y convicción en algo en hacer algo mejor por los demás, lograrlo siempre es posible.
+          Vivo con Diabetes tipo 1. Uno nunca entiende estas cosas, la salud se da por hecho. Pero una vez que la ves en juego te das cuenta que sin ella no hay nada. Tengo Diabetes pero me siento poderosa y es gracias a ustedes, a su compañía y su amor.
+        </p>
+        <p class="about-body">
+          <!-- AGREGA aquí más información biográfica, trayectoria, preparación académica, etc. -->
+          Con años de experiencia en gestión pública y trabajo comunitario, mi
+          compromiso es claro: escuchar, actuar y dar resultados.
+        </p>
+        <ul class="about-badges">
+          <li>🎓 <!-- Tu preparación académica --></li>
+          <li>🏛️ Diputada Local · Congreso de Jalisco</li>
+          <li>🌟 <!-- Comisión o cargo adicional --></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ LOGROS / CARRUSEL ═══════════════════════════ -->
+  <section class="logros" id="logros">
+    <div class="logros-header">
+      <span class="section-label light">Trabajo Legislativo</span>
+      <h2 class="section-title light">Lo que hemos<br>logrado juntos</h2>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- TARJETA 1 -->
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <h3 class="card-title">Iniciativa de Ley</h3>
+          <p class="card-desc">
+            <!-- DESCRIBE la iniciativa de ley presentada, número, materia, beneficiarios -->
+            Presentación de iniciativa para la protección de niñas, niños y adolescentes
+            en el estado de Jalisco.
+          </p>
+          <span class="card-tag">2024</span>
+        </div>
+
+        <!-- TARJETA 2 -->
+        <div class="card">
+          <div class="card-icon">🏥</div>
+          <h3 class="card-title">Gestión en Salud</h3>
+          <p class="card-desc">
+            <!-- DESCRIBE la gestión de salud, número de beneficiados, municipio, etc. -->
+            Gestión para llevar brigadas médicas gratuitas a comunidades vulnerables
+            del distrito.
+          </p>
+          <span class="card-tag">2024</span>
+        </div>
+
+        <!-- TARJETA 3 -->
+        <div class="card">
+          <div class="card-icon">🎒</div>
+          <h3 class="card-title">Becas Educativas</h3>
+          <p class="card-desc">
+            <!-- DESCRIBE el programa de becas, número de beneficiados, municipios -->
+            Impulso a programas de becas para estudiantes de educación media superior
+            en situación de vulnerabilidad.
+          </p>
+          <span class="card-tag">2023</span>
+        </div>
+
+        <!-- TARJETA 4 -->
+        <div class="card">
+          <div class="card-icon">🌿</div>
+          <h3 class="card-title">Medio Ambiente</h3>
+          <p class="card-desc">
+            <!-- DESCRIBE la acción ambiental, reforestación, parques, etc. -->
+            Proyecto de reforestación y creación de áreas verdes en colonias populares
+            del municipio.
+          </p>
+          <span class="card-tag">2023</span>
+        </div>
+
+        <!-- TARJETA 5 -->
+        <div class="card">
+          <div class="card-icon">👩‍💼</div>
+          <h3 class="card-title">Empoderamiento Femenino</h3>
+          <p class="card-desc">
+            <!-- DESCRIBE el programa o iniciativa para mujeres -->
+            Talleres de emprendimiento y capacitación laboral para mujeres jefas de familia
+            en el distrito.
+          </p>
+          <span class="card-tag">2023</span>
+        </div>
+
+        <!-- TARJETA 6 -->
+        <div class="card">
+          <div class="card-icon">🏘️</div>
+          <h3 class="card-title">Infraestructura Comunitaria</h3>
+          <p class="card-desc">
+            <!-- DESCRIBE obra pública, calles, parques, alumbrado, etc. -->
+            Gestión de obra pública para pavimentación y mejora de infraestructura
+            en colonias prioritarias.
+          </p>
+          <span class="card-tag">2022</span>
+        </div>
+
+      </div><!-- /carousel-track -->
+
+      <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">&#8594;</button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots"></div>
+  </section>
+
+  <!-- ═══════════════════════════ SECCIÓN COMPLEMENTARIA ═══════════════════════════ -->
+  <section class="about about-reverse" id="seccion-complementaria">
+    <div class="about-inner">
+      <div class="about-image-wrap">
+        <!-- REEMPLAZA src con la imagen que quieras mostrar -->
+        <img src="img/mmonica2024.jpg" alt="Complementaria" class="about-photo" />
+        <div class="about-photo-accent"></div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Compromiso</span>
+        <h2 class="section-title">Trabajando por<br>tu comunidad</h2>
+        <p class="about-body">
+          Mi compromiso es claro: estar presente en tu comunidad, escuchar tus necesidades y actuar con responsabilidad. Cada logro que hemos alcanzado es gracias a tu confianza y apoyo constante.
+        </p>
+        <p class="about-body">
+          Creo firmemente que la política debe ser cercana, accesible y enfocada en resolver los problemas reales de las personas. No se trata solo de promesas, sino de acciones concretas que generen cambios positivos en la vida de todos.
+        </p>
+        <ul class="about-badges">
+          <li>✅ Iniciativas legislativas en beneficio del distrito</li>
+          <li>✅ Atención directa a la comunidad</li>
+          <li>✅ Compromiso transparente y permanente</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<!--    ═══════════════════════════ CRUCIGRAMA INTERACTIVO (COMENTADO POR BUGS) ═══════════════════════════ -->
+  <!--
+  <section class="crossword-section" id="crucigrama">
+    <div class="crossword-header">
+      <span class="section-label">Desafío Interactivo</span>
+      <h2 class="section-title">¿Sabes de mis propuestas?<br>Resuelve el crucigrama 🧩</h2>
+      <p class="crossword-subtitle">Completa la cuadrícula con las palabras de mis propuestas</p>
+    </div>
+
+    <div class="crossword-container">
+      <div class="crossword-main">
+         CUADRÍCULA VISUAL 
+        <div class="crossword-grid-wrapper">
+          <div class="crossword-grid" id="crosswordGrid">
+             Las celdas se generan con JavaScript 
+          </div>
+        </div>
+
+         PISTAS 
+        <div class="crossword-clues">
+          <div class="clues-section">
+            <h4 class="clues-title">📍 Horizontales</h4>
+            <ul class="clues-list" id="horizontalClues">
+               Las pistas se generan con JavaScript 
+            </ul>
+          </div>
+          <div class="clues-section">
+            <h4 class="clues-title">⬇️ Verticales</h4>
+            <ul class="clues-list" id="verticalClues">
+               Las pistas se generan con JavaScript 
+            </ul>
+          </div>
+        </div>
+      </div>
+
+       BOTONES DE ACCIÓN 
+      <div class="crossword-actions">
+        <button class="btn-primary verify-crossword" id="verifyCrossword">Verificar Crucigrama</button>
+        <button class="btn-secondary" id="resetCrossword" style="background: rgba(255,255,255,0.1); border-color: var(--orange); color: var(--orange);">Limpiar</button>
+        <div class="crossword-feedback" id="crosswordFeedback"></div>
+      </div>
+
+       VIDEO DESBLOQUEADO 
+      <div class="crossword-reward" id="crosswordReward" style="display: none;">
+        <div class="reward-content">
+          <div class="reward-badge">🎁 ¡DESBLOQUEADO!</div>
+          <h3>Mensaje Especial de Mónica</h3>
+          <p>¡Felicidades! Conoces mis propuestas. Aquí te dejo un mensaje especial:</p>
+          <video width="100%" height="auto" controls style="border-radius: 12px; margin-top: 20px;">
+             REEMPLAZA src con la ruta a tu video de Mónica 
+            <source src="img/video_monica.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <p style="margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+            ¿Te gustaría compartir esto? 📲
+          </p>
+          <div class="share-buttons">
+            <a href="#" class="share-btn" onclick="compartirEnRedes('facebook')">Facebook</a>
+            <a href="#" class="share-btn" onclick="compartirEnRedes('twitter')">Twitter</a>
+            <a href="#" class="share-btn" onclick="compartirEnRedes('whatsapp')">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  -->
+  
+
+  <!-- ═══════════════════════════ LÍNEA DEL TIEMPO INTERACTIVA ═══════════════════════════ -->
+  <section class="timeline-section" id="timeline">
+    <div class="timeline-header">
+      <span class="section-label">Mi Trayectoria</span>
+      <h2 class="section-title">Trayectoria en<br>30 segundos</h2>
+      <p class="timeline-subtitle">Haz click en cada momento para descubrir el impacto</p>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline-track">
+        <div class="timeline-line"></div>
+        
+        <!-- PUNTO 2013 -->
+        <div class="timeline-item" data-year="2013">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2013</span>
+            <h3 class="timeline-title">Inicio en servicio público</h3>
+            <p class="timeline-preview">Primeros pasos en gestión pública</p>
+          </div>
+        </div>
+
+        <!-- PUNTO 2015 -->
+        <div class="timeline-item" data-year="2015">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2015</span>
+            <h3 class="timeline-title">Directora del Instituto de la Juventud de Zapopan</h3>
+            <p class="timeline-preview">Programas de apoyo comunitario</p>
+          </div>
+        </div>
+
+        <!-- PUNTO 2018 -->
+        <div class="timeline-item" data-year="2018">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2018</span>
+            <h3 class="timeline-title">Regidora más joven de la Zona Metropolitana de Guadalajara</h3>
+            <p class="timeline-preview">Regidora más Joven</p>
+          </div>
+        </div>
+
+        <!-- PUNTO 2021 -->
+        <div class="timeline-item" data-year="2021">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2021</span>
+            <h3 class="timeline-title">Diputada Local</h3>
+            <p class="timeline-preview">Más votada del distrito 10</p>
+          </div>
+        </div>
+
+        <!-- PUNTO 2024 -->
+        <div class="timeline-item" data-year="2024">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2024</span>
+            <h3 class="timeline-title">Diputada Local</h3>
+            <p class="timeline-preview">Más votada del distrito 10</p>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+    <!-- MODAL POPUP PARA DETALLES -->
+    <div class="timeline-modal" id="timelineModal" style="display: none;">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-body">
+          <img src="" alt="" class="modal-image" id="modalImage">
+          <div class="modal-text">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+            <div class="modal-impact">
+              <strong>Impacto Real:</strong>
+              <p id="modalImpact"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ RULETA DE PROPUESTAS ═══════════════════════════ -->
+  <section class="wheel-section" id="ruleta">
+    <div class="wheel-header">
+      <span class="section-label">Interactivo Viral</span>
+      <h2 class="section-title light">Gira la Ruleta 🎡<br>y descubre propuestas</h2>
+      <p class="wheel-subtitle">Cada giro te muestra una propuesta diferente + video corto</p>
+    </div>
+
+    <div class="wheel-container">
+      <div class="wheel-canvas-wrap">
+        <canvas id="wheelCanvas" width="400" height="400"></canvas>
+        <button class="wheel-spin-btn" id="spinBtn">GIRAR RULETA</button>
+        <div class="wheel-pointer"></div>
+      </div>
+
+      <div class="wheel-result" id="wheelResult" style="display: none;">
+        <div class="result-content">
+          <div class="result-proposal" id="proposalTitle"></div>
+          <p id="proposalDesc" class="proposal-desc"></p>
+          <video width="100%" height="auto" controls style="border-radius: 12px; margin-top: 15px;">
+            <source id="proposalVideo" src="" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div class="result-actions">
+            <button class="btn-primary" onclick="document.getElementById('spinBtn').click()">Girar de Nuevo</button>
+            <button class="btn-secondary" onclick="compartirEnRedes('propuesta'); return false;">Compartir 📲</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════ WHATSAPP QR ═══════════════════════════ -->
+  <section class="whatsapp-section" id="whatsapp">
+    <div class="whatsapp-inner">
+      <div class="wa-text">
+        <span class="section-label">Contacto Directo</span>
+        <h2 class="section-title">¿Tienes algún problema que resolver en tu comunidad<br>o propuesta?</h2>
+        <p class="wa-body">
+          Escanea el código QR con tu celular para escribirme directamente por WhatsApp.
+          Tu voz importa y estoy aquí para escucharte.
+        </p>
+        <a href="https://wa.me/5213318574935" target="_blank" class="btn-primary wa-btn">
+          <!-- REEMPLAZA el número con el número real de WhatsApp -->
+          Abrir WhatsApp
+        </a>
+      </div>
+      <div class="wa-qr-wrap">
+        <!--
+          INSTRUCCIONES QR:
+          1. Ve a https://qr.io o https://www.qr-code-generator.com/
+          2. Genera un QR con la URL: https://wa.me/521TUNUMERO
+          3. Descarga la imagen y reemplaza src abajo
+        -->
+        <img src="img\canal_de_difusion.jpg" alt="QR WhatsApp Mónica Magaña" class="qr-img" />
+        <p class="qr-hint">Escanea para escribirme</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer" id="contacto">
+    <div class="footer-top">
+
+      <div class="footer-col footer-brand">
+        <img src="img/icono.ico" alt="Logo" class="footer-logo" />
+        <p class="footer-desc">
+          Mónica Magaña, Diputada Local por Jalisco.<br>
+          Trabajando cada día por un Jalisco mejor.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Redes Sociales</h4>
+        <ul class="footer-links social-links">
+          <li>
+            <a href="https://www.instagram.com/monica.maganam" target="_blank">
+              <!-- REEMPLAZA con tu usuario de Instagram -->
+              <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/MonicaMaganaM" target="_blank">
+              <!-- REEMPLAZA con tu página de Facebook -->
+              <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/MonicaMgn" target="_blank">
+              <!-- REEMPLAZA con tu usuario de X/Twitter -->
+              <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X / Twitter
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@monica.maganam" target="_blank">
+              <!-- REEMPLAZA con tu usuario de TikTok -->
+              <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+              TikTok
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Ubicación</h4>
+        <address class="footer-address">
+          <p>
+            <strong>Congreso del Estado de Jalisco</strong><br>
+            Av. Hidalgo 222, Colonia Centro<br>
+            Guadalajara, Jalisco, México<br>
+            C.P. 44100
+          </p>
+          <a href="https://maps.google.com/?q=Congreso+del+Estado+de+Jalisco+Guadalajara" target="_blank" class="map-link">
+            Ver en Google Maps →
+          </a>
+        </address>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Programas Sociales</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.gob.mx/bienestar" target="_blank">Programas Bienestar Federal</a></li>
+          <li><a href="https://jalisco.gob.mx/servicios" target="_blank">Servicios Gobierno de Jalisco</a></li>
+          <li><a href="https://www.imss.gob.mx" target="_blank">IMSS – Servicios de Salud</a></li>
+          <li><a href="https://www.sep.gob.mx" target="_blank">SEP – Educación</a></li>
+          <li><a href="https://www.infonavit.org.mx" target="_blank">INFONAVIT – Vivienda</a></li>
+          <!-- AGREGA más programas relevantes para tu distrito -->
+        </ul>
+      </div>
+
+    </div><!-- /footer-top -->
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Mónica Magaña · Diputada Local por Jalisco. Todos los derechos reservados.</p>
+      <p class="footer-credit">Hecho con compromiso por Jalisco 🧡</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
