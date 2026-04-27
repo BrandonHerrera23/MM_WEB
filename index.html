@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 
-  
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-26TBV8YF76"></script>
 <script>
@@ -412,10 +412,7 @@
         <div class="result-content">
           <div class="result-proposal" id="proposalTitle"></div>
           <p id="proposalDesc" class="proposal-desc"></p>
-          <video width="100%" height="auto" controls style="border-radius: 12px; margin-top: 15px;">
-            <source id="proposalVideo" src="" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-          </video>
+          <div id="proposalVideoContainer" style="border-radius: 12px; margin-top: 15px; overflow: hidden;"></div>
           <div class="result-actions">
             <button class="btn-primary" onclick="document.getElementById('spinBtn').click()">Girar de Nuevo</button>
             <button class="btn-secondary" onclick="compartirEnRedes('propuesta'); return false;">Compartir 📲</button>

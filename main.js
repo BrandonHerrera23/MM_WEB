@@ -369,12 +369,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 (function initRuleta() {
 
-  const canvas    = document.getElementById('wheelCanvas');
-  const spinBtn   = document.getElementById('spinBtn');
-  const resultDiv = document.getElementById('wheelResult');
-  const titleEl   = document.getElementById('proposalTitle');
-  const descEl    = document.getElementById('proposalDesc');
-  const videoSrc  = document.getElementById('proposalVideo');
+  const canvas              = document.getElementById('wheelCanvas');
+  const spinBtn             = document.getElementById('spinBtn');
+  const resultDiv           = document.getElementById('wheelResult');
+  const titleEl             = document.getElementById('proposalTitle');
+  const descEl              = document.getElementById('proposalDesc');
+  const videoContainer      = document.getElementById('proposalVideoContainer');
 
   if (!canvas || !spinBtn) return;
 
@@ -402,32 +402,32 @@ document.addEventListener('DOMContentLoaded', () => {
       video: "img/tepa_somos_uno.mp4"
     },
     {
-      label: "Diabetes",
+      label: "Donde todo empezó",
       color: "#FF8C3A",
       text:  "#fff",
-      desc:  "Sensibilización y acceso a insumos para personas con diabetes. Mónica vive con Diabetes Tipo 1 y convierte su experiencia en acción legislativa.",
-      video: ""
+      desc:  "Te muestro un poco sobre el progreso que hemos logrado juntos !",
+      video: "https://www.youtube.com/shorts/WCrZztZAo5A"
     },
     {
-      label: "Educación",
+      label: "Red de Hospitales",
       color: "#E65C00",
       text:  "#fff",
-      desc:  "Impulso a programas de becas para estudiantes de educación media superior en situación de vulnerabilidad en el Distrito 10.",
-      video: ""
+      desc:  "Te hablo de como vamos a crear juntos nuevos hospitales y escuelas.",
+      video: "https://www.youtube.com/shorts/7b5NyVQacnE"
     },
     {
       label: "Mujeres",
       color: "#FF6600",
       text:  "#fff",
       desc:  "Talleres de emprendimiento y capacitación laboral para mujeres jefas de familia. Fortalecer la autonomía económica en el distrito.",
-      video: ""
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
       label: "Infraestructura",
       color: "#CC4E00",
       text:  "#fff",
       desc:  "Gestión de obra pública: pavimentación, alumbrado y mejora de espacios comunitarios en colonias prioritarias de Zapopan.",
-      video: ""
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
       label: "Medio Ambiente",
@@ -528,6 +528,61 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(frame);
   }
 
+  function isYouTubeUrl(url) {
+    return url && (url.includes('youtube.com') || url.includes('youtu.be'));
+  }
+
+  function renderVideo(videoUrl) {
+    videoContainer.innerHTML = '';
+    
+    if (!videoUrl) {
+      videoContainer.style.display = 'none';
+      return;
+    }
+
+    videoContainer.style.display = 'block';
+
+    if (isYouTubeUrl(videoUrl)) {
+      let embedUrl = videoUrl;
+      
+      // Convertir URL estándar a embed si es necesario
+      if (videoUrl.includes('youtu.be/')) {
+        const videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
+        embedUrl = `https://www.youtube.com/embed/${videoId}`;
+      } else if (videoUrl.includes('watch?v=')) {
+        const videoId = videoUrl.split('v=')[1].split('&')[0];
+        embedUrl = `https://www.youtube.com/embed/${videoId}`;
+      }
+
+      const iframe = document.createElement('iframe');
+      iframe.width = '100%';
+      iframe.height = '400';
+      iframe.src = embedUrl;
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.borderRadius = '12px';
+      videoContainer.appendChild(iframe);
+    } else {
+      // Si es video local, crear elemento <video>
+      const video = document.createElement('video');
+      video.width = '100%';
+      video.height = 'auto';
+      video.controls = true;
+      video.style.borderRadius = '12px';
+      
+      const source = document.createElement('source');
+      source.src = videoUrl;
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      
+      const textNode = document.createTextNode('Tu navegador no soporta el elemento de video.');
+      video.appendChild(textNode);
+      
+      videoContainer.appendChild(video);
+    }
+  }
+
   function showResult(finalAngle) {
     const pointer    = -Math.PI / 2;
     const normalized = ((pointer - finalAngle) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
@@ -536,17 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     titleEl.textContent = proposal.label;
     descEl.textContent  = proposal.desc;
-
-    const videoEl = videoSrc ? videoSrc.closest('video') : null;
-    if (videoEl) {
-      if (proposal.video) {
-        videoSrc.src = proposal.video;
-        videoEl.style.display = 'block';
-        videoEl.load();
-      } else {
-        videoEl.style.display = 'none';
-      }
-    }
+    renderVideo(proposal.video);
 
     resultDiv.style.display = 'block';
     resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
