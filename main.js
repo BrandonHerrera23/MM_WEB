@@ -590,7 +590,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Inicio en servicio público',
       description: 'Comenzó mi trayectoria en la administración pública, enfocándome en políticas de inclusión y acceso a servicios básicos para comunidades vulnerables.',
       impact: 'Participación activa en 5 programas municipales con impacto en más de 2,000 familias. Establecimiento de base comunitaria en el distrito.',
-      image: 'img/Monica.jpg' // Reemplaza con imagen real del 2018
+      image: 'img/monica2013.jpg' // Reemplaza con imagen real del 2018
     },
     '2015': {
       title: 'Directora del Instituto de la Juventud de Zapopan',
