@@ -406,14 +406,14 @@ document.addEventListener('DOMContentLoaded', () => {
       color: "#FF8C3A",
       text:  "#fff",
       desc:  "Te muestro un poco sobre el progreso que hemos logrado juntos !",
-      video: "https://www.youtube.com/shorts/WCrZztZAo5A"
+      video: "https://www.youtube.com/embed/WCrZztZAo5A"
     },
     {
       label: "Red de Hospitales",
       color: "#E65C00",
       text:  "#fff",
       desc:  "Te hablo de como vamos a crear juntos nuevos hospitales y escuelas.",
-      video: "https://www.youtube.com/shorts/7b5NyVQacnE"
+      video: "https://www.youtube.com/embed/7b5NyVQacnE"
     },
     {
       label: "Mujeres",
