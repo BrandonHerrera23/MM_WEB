@@ -388,18 +388,18 @@ document.addEventListener('DOMContentLoaded', () => {
   ─────────────────────────────────────────────────────── */
   const PROPOSALS = [
     {
-      label: "Salud Renal",
+      label: "Transporte Zapopan",
       color: "#FF6600",
       text:  "#fff",
-      desc:  "Te cuento un poco sobre mi y mi trabajo.",
-      video: "img/video_autismo.mp4"
+      desc:  "Las niñas y niños ya no pagaran transporte publico",
+      video: "https://www.youtube.com/embed/-98bGv6wQgY"
     },
     {
-      label: "Derechos NNA",
+      label: "La nueva ley de Autismo",
       color: "#CC4E00",
       text:  "#fff",
       desc:  "Tepatitlán #somos uno.",
-      video: "img/tepa_somos_uno.mp4"
+      video: "https://www.youtube.com/embed/C9LFxFnmpwU"
     },
     {
       label: "Donde todo empezó",
