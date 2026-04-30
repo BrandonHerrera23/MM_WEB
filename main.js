@@ -430,18 +430,18 @@ document.addEventListener('DOMContentLoaded', () => {
       video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
-      label: "Medio Ambiente",
+      label: "Pror Zapopan no paramos",
       color: "#FF8C3A",
       text:  "#fff",
       desc:  "Proyecto de reforestación y creación de áreas verdes en colonias populares. Un Jalisco más verde para las próximas generaciones.",
-      video: ""
+      video: "https://www.youtube.com/embed/cv1D8q6951s"
     },
     {
-      label: "Salud Mental",
+      label: "1000 ACTOS DE AMOR",
       color: "#E65C00",
       text:  "#fff",
       desc:  "Iniciativa para incorporar atención psicológica en centros de salud del distrito. La salud mental es salud.",
-      video: ""
+      video: "https://www.youtube.com/embed/f18CqN4-RCw"
     },
   ];
 
