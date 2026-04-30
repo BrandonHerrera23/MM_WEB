@@ -416,18 +416,18 @@ document.addEventListener('DOMContentLoaded', () => {
       video: "https://www.youtube.com/embed/7b5NyVQacnE"
     },
     {
-      label: "Mujeres",
+      label: "Ella es Mónica Magaña",
       color: "#FF6600",
       text:  "#fff",
       desc:  "Talleres de emprendimiento y capacitación laboral para mujeres jefas de familia. Fortalecer la autonomía económica en el distrito.",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      video: "https://www.youtube.com/embed/0NwC3YDv1ak"
     },
     {
-      label: "Infraestructura",
+      label: "Un mensaje para las mujeres",
       color: "#CC4E00",
       text:  "#fff",
       desc:  "Gestión de obra pública: pavimentación, alumbrado y mejora de espacios comunitarios en colonias prioritarias de Zapopan.",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      video: "https://www.youtube.com/embed/rgzFbUOv6j0"
     },
     {
       label: "Pror Zapopan no paramos",
