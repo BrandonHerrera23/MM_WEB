@@ -631,10 +631,10 @@ document.addEventListener('DOMContentLoaded', () => {
      Personaliza con tus datos reales: foto, logro, impacto
   ─────────────────────────────────────────────────────── */
   const timelineData = {
-    '2013': {
-      title: 'Inicio en servicio público',
+    '2012': {
+      title: 'Inicio con proyectos comunitarios',
       description: 'Comenzó mi trayectoria en la administración pública, enfocándome en políticas de inclusión y acceso a servicios básicos para comunidades vulnerables.',
-      impact: 'Participación activa en 5 programas municipales con impacto en más de 2,000 familias. Establecimiento de base comunitaria en el distrito.',
+      impact: 'A mis 17 años descubrí mi vocación por el servicio a los demás. Junto a un grupo de amigos, nos lanzamos a colonias marginadas de la Ciudad apoyando a personas en situación de pobreza.',
       image: 'img/monica2013.jpg' // Reemplaza con imagen real del 2018
     },
     '2015': {
