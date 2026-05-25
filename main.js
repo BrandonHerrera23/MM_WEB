@@ -646,7 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '2018': {
       title: 'Regidora más joven de la Zona Metropolitana de Guadalajara',
       description: 'En 2018 fue electa Regidora de Zapopan, convirtiéndose en la más joven de la Zona Metropolitana de Guadalajara.  Desde la presidencia de la Comisión Colegiada y Permanente de Juventud y Deporte, consolidó su liderazgo en temas de participación ciudadana, desarrollo social, deporte y prevención.',
-      impact: 'Impulsó y logró la aprobación del Nuevo Reglamento de la Vía RecreActiva, que fortaleció el programa dominical más importante de activación física y convivencia familiar de Zapopan. Promovió la creación del Reglamento para la Prevención y Combate a la Desigualdad y reformas a reglamentos de espacios públicos deportivos, antidiscriminación y asistencia social.',
+      impact: 'Impulsó y logró la aprobación del Nuevo Reglamento de la Vía RecreActiva, que fortaleció el programa dominical más importante de activación física y convivencia familiar de Zapopan.',
       image: 'img/compromiso.jpg' // Reemplaza con imagen real del 2018
     },
     '2021': {
