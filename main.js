@@ -640,13 +640,13 @@ document.addEventListener('DOMContentLoaded', () => {
     '2015': {
       title: 'Directora del Instituto de la Juventud de Zapopan',
       description: 'En 2015 fui nombrada Directora del Instituto de la Juventud de Zapopan, convirtiendome en una de las funcionarias más jóvenes en ocupar este cargo en la Zona Metropolitana de Guadalajara, impulsando programas para jóvenes en situación de riesgo por violencia y adicciones.',
-      impact: 'Me converti en una de las funcionarias mas jovenes impulsando programas para jovenes.',
+      impact: 'más de 600 jóvenes fueron beneficiados con los diversos programas del IJZ durante 2015 a 2018.',
       image: 'img/trayectoriap.jpg' // Reemplaza con imagen real del 2015
     },
     '2018': {
       title: 'Regidora más joven de la Zona Metropolitana de Guadalajara',
-      description: 'En 2018 fue electa Regidora de Zapopan, convirtiéndose en la más joven de la Zona Metropolitana de Guadalajara, consolidando su liderazgo en temas de participación ciudadana y desarrollo social.',
-      impact: '3 centros comunitarios construidos. 1,500+ personas beneficiadas. Presupuesto legislativo de $2.5M asignado exitosamente.',
+      description: 'En 2018 fue electa Regidora de Zapopan, convirtiéndose en la más joven de la Zona Metropolitana de Guadalajara.  Desde la presidencia de la Comisión Colegiada y Permanente de Juventud y Deporte, consolidó su liderazgo en temas de participación ciudadana, desarrollo social, deporte y prevención.',
+      impact: 'Impulsó y logró la aprobación del Nuevo Reglamento de la Vía RecreActiva, que fortaleció el programa dominical más importante de activación física y convivencia familiar de Zapopan. Promovió la creación del Reglamento para la Prevención y Combate a la Desigualdad y reformas a reglamentos de espacios públicos deportivos, antidiscriminación y asistencia social.',
       image: 'img/compromiso.jpg' // Reemplaza con imagen real del 2018
     },
     '2021': {
