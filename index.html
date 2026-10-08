@@ -15,8 +15,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- SEO básico -->
-  <title>Mónica Magaña – Diputada Local Jalisco | Distrito 10</title>
-  <meta name="description" content="Mónica Magaña, Diputada Local por el Distrito 10 de Jalisco. Conoce sus logros, propuestas legislativas y su trabajo por los ciudadanos de Zapopan.">
+  <title>Mónica Magaña · Siempre Zapopan</title>
+  <meta name="description" content="Mónica Magaña, diputada local por el Distrito 10 de Zapopan. Más de 13 años trabajando por Zapopan, leyes que llegan a las familias y una voz de Jalisco en foros internacionales de salud.">
   <meta name="keywords" content="Mónica Magaña, Diputada Jalisco, Distrito 10, Movimiento Ciudadano, Zapopan, Congreso Jalisco">
   <meta name="author" content="Mónica Magaña">
   <meta name="robots" content="index, follow">
@@ -24,16 +24,16 @@
 
   <!-- Open Graph (WhatsApp, Facebook, redes sociales) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mónica Magaña – Diputada Local Jalisco">
-  <meta property="og:description" content="Comprometida con Jalisco, trabajando para ti todos los días.">
+  <meta property="og:title" content="Mónica Magaña · Siempre Zapopan">
+  <meta property="og:description" content="Más de 13 años trabajando por Zapopan. Siempre Zapopan.">
   <meta property="og:url" content="https://monicamagana.mx/">
   <meta property="og:locale" content="es_MX">
   <meta property="og:image" content="https://monicamagana.mx/img/Monica.jpg">
 
   <!-- Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mónica Magaña – Diputada Local Jalisco">
-  <meta name="twitter:description" content="Comprometida con Jalisco, trabajando para ti todos los días.">
+  <meta name="twitter:title" content="Mónica Magaña · Siempre Zapopan">
+  <meta name="twitter:description" content="Más de 13 años trabajando por Zapopan. Siempre Zapopan.">
   <meta name="twitter:image" content="https://monicamagana.mx/img/Monica.jpg">
 
   <!-- Datos estructurados para IAs y Google -->
@@ -68,7 +68,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 
 </head>
 
@@ -90,6 +90,16 @@
         style="width:30px;">
 </a>
 
+  <!-- ═══════════════════════════ FRANJA DE ANUNCIO ═══════════════════════════ -->
+  <!-- Para quitar: comenta este bloque y cambia .navbar { top: 40px } a top: 0 en styles.css -->
+  <div class="announcement-bar">
+    <a href="#logros">
+      <span class="ann-label">5to Informe Legislativo</span>
+      Conoce lo que logramos este año
+      <span class="ann-arrow">→</span>
+    </a>
+  </div>
+
   <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
   <header class="navbar" id="navbar">
     <div class="navbar-inner">
@@ -99,12 +109,11 @@
         <span class="logo-text">Diputada Mónica Magaña</span>
       </div>
       <nav class="navbar-links">
-        <a href="#sobre-mi">Sobre Mí</a>
-        <a href="#logros">Logros</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#logros">Leyes y programas</a>
+        <a href="#zapopan-mundo">Zapopan en el mundo</a>
         <a href="#timeline">Trayectoria</a>
-        <a href="#ruleta">Ruleta</a>
-        <a href="#contacto">Contacto</a>
-        <a href="#whatsapp" class="btn-nav">Escríbeme</a>
+        <a href="#whatsapp">Contacto</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -116,20 +125,20 @@
   <section class="hero" id="inicio">
     <!-- Video de fondo — reemplaza src con tu video -->
     <video class="hero-video" autoplay muted loop playsinline>
-      <source src="img\VideoFondo.mp4" type="video/mp4" />
+      <source src="img/VideoFondo.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <p class="hero-eyebrow">Diputada Local · Jalisco</p>
+      <p class="hero-eyebrow">Diputada Local · Distrito 10 de Zapopan</p>
       <h1 class="hero-name">
         <span class="name-first">MÓNICA</span>
         <span class="name-last">MAGAÑA</span>
       </h1>
-      <p class="hero-tagline">Comprometida con Jalisco y con Zapopan,<br>trabajando para ti todos los días.</p>
+      <p class="hero-tagline">Siempre Zapopan</p>
       <div class="hero-ctas">
         <a href="#sobre-mi" class="btn-primary">Conóceme</a>
-        <a href="#logros" class="btn-secondary">Ver Logros</a>
+        <a href="#timeline" class="btn-secondary">Mi trayectoria</a>
       </div>
     </div>
 
@@ -144,27 +153,25 @@
     <div class="about-inner">
       <div class="about-image-wrap">
         <!-- REEMPLAZA src con foto oficial de Mónica -->
-        <img src="img\acad.jpg" alt="Mónica Magaña" class="about-photo" />
+        <img src="img/acad.jpg" alt="Mónica Magaña" class="about-photo" />
         <div class="about-photo-accent"></div>
       </div>
       <div class="about-text">
         <span class="section-label">Sobre Mí</span>
-        <h2 class="section-title">Una voz cercana,<br>comprometida con Jalisco</h2>
+        <h2 class="section-title">Zapopan me formó</h2>
         <p class="about-body">
-          Soy orgullosamente zapopana, licenciada en Derecho por el ITESO y maestrante en George Washington University en Gobernanza estratégica y Comunicación Política.
-          En el año 2021 me convertí en la Diputada más votada de Jalisco,por el distrito 10. 
-          Voy por la vida con una consigna muy firme: cuando ponemos todas nuestras ganas y convicción en algo en hacer algo mejor por los demás, lograrlo siempre es posible.
-          Vivo con Diabetes tipo 1. Uno nunca entiende estas cosas, la salud se da por hecho. Pero una vez que la ves en juego te das cuenta que sin ella no hay nada. Tengo Diabetes pero me siento poderosa y es gracias a ustedes, a su compañía y su amor.
+          Soy orgullosamente zapopana. Estudié Derecho en el ITESO, soy maestra en Gobernanza Estratégica y Comunicación Política por la George Washington University y tengo formación en la Harvard Kennedy School.
         </p>
         <p class="about-body">
-          <!-- AGREGA aquí más información biográfica, trayectoria, preparación académica, etc. -->
-          Con años de experiencia en gestión pública y trabajo comunitario, mi
-          compromiso es claro: escuchar, actuar y dar resultados.
+          Trabajo por Zapopan desde 2013, cuando todavía no existía un equipo de gobierno. Formé parte del primer gobierno de Pablo Lemus y desde entonces camino en el mismo proyecto con él y con Juan José Frangie. En 2021 fui la diputada más votada de Jalisco y en 2024 Zapopan me reeligió con la votación más alta del estado. Fui la presidenta más joven del Congreso de Jalisco y hoy encabezo la Comisión de Salud, desde donde llevo lo que construimos aquí a foros como la Organización Panamericana de la Salud.
+        </p>
+        <p class="about-body">
+          Vivo con diabetes tipo 1 y me siento poderosa gracias a ustedes. Cuando ponemos todas nuestras ganas y convicción en hacer algo mejor por los demás, lo logramos. Aquí he estado siempre y aquí voy a seguir.
         </p>
         <ul class="about-badges">
-          <li>🎓 <!-- Tu preparación académica --></li>
-          <li>🏛️ Diputada Local · Congreso de Jalisco</li>
-          <li>🌟 <!-- Comisión o cargo adicional --></li>
+          <li>🎓 Maestra por la George Washington University</li>
+          <li>🏛️ Presidenta de la Comisión de Salud · Congreso de Jalisco</li>
+          <li>🌟 Expresidenta del Congreso de Jalisco</li>
         </ul>
       </div>
     </div>
@@ -173,7 +180,7 @@
   <!-- ═══════════════════════════ LOGROS / CARRUSEL ═══════════════════════════ -->
   <section class="logros" id="logros">
     <div class="logros-header">
-      <span class="section-label light">Trabajo Legislativo</span>
+      <span class="section-label light">Leyes y Programas</span>
       <h2 class="section-title light">Lo que hemos<br>logrado juntas y juntos</h2>
     </div>
 
@@ -182,74 +189,66 @@
 
         <!-- TARJETA 1 -->
         <div class="card">
-          <div class="card-icon">📋</div>
-          <h3 class="card-title">Iniciativa de Ley</h3>
-          <p class="card-desc">
-            <!-- DESCRIBE la iniciativa de ley presentada, número, materia, beneficiarios -->
-            Presentación de iniciativa para la protección de niñas, niños y adolescentes
-            en el estado de Jalisco.
-          </p>
-          <span class="card-tag">2024</span>
+          <div class="card-icon">🛡️</div>
+          <h3 class="card-title">Ley contra Reclutamiento de NNA</h3>
+          <p class="card-desc">Para que el Estado llegue antes que el crimen a escuelas y colonias, y atienda a las víctimas.</p>
+          <span class="card-tag">2026</span>
         </div>
 
         <!-- TARJETA 2 -->
         <div class="card">
-          <div class="card-icon">🏥</div>
-          <h3 class="card-title">Gestión en Salud</h3>
-          <p class="card-desc">
-            <!-- DESCRIBE la gestión de salud, número de beneficiados, municipio, etc. -->
-            Gestión para llevar brigadas médicas gratuitas a comunidades vulnerables
-            del distrito.
-          </p>
-          <span class="card-tag">2024</span>
+          <div class="card-icon">🚶</div>
+          <h3 class="card-title">Ley de Movilidad y Seguridad Vial</h3>
+          <p class="card-desc">Pone primero a peatones, ciclistas y usuarios del transporte público, y protege a las mujeres para que se muevan libres y seguras.</p>
+          <span class="card-tag">2022</span>
         </div>
 
         <!-- TARJETA 3 -->
         <div class="card">
-          <div class="card-icon">🎒</div>
-          <h3 class="card-title">Becas Educativas</h3>
-          <p class="card-desc">
-            <!-- DESCRIBE el programa de becas, número de beneficiados, municipios -->
-            Impulso a programas de becas para estudiantes de educación media superior
-            en situación de vulnerabilidad.
-          </p>
-          <span class="card-tag">2023</span>
+          <div class="card-icon">🌈</div>
+          <h3 class="card-title">Ley Jalisco de Colores · Autismo</h3>
+          <p class="card-desc">Diagnóstico, terapias e inclusión para personas en el espectro y sus familias. En Zapopan ya hay dos centros públicos de atención.</p>
+          <span class="card-tag">2026</span>
         </div>
 
         <!-- TARJETA 4 -->
         <div class="card">
-          <div class="card-icon">🌿</div>
-          <h3 class="card-title">Medio Ambiente</h3>
-          <p class="card-desc">
-            <!-- DESCRIBE la acción ambiental, reforestación, parques, etc. -->
-            Proyecto de reforestación y creación de áreas verdes en colonias populares
-            del municipio.
-          </p>
-          <span class="card-tag">2023</span>
+          <div class="card-icon">💉</div>
+          <h3 class="card-title">Ley de Diabetes Tipo 1</h3>
+          <p class="card-desc">Jalisco fue el primer estado del país con una ley de atención integral para la diabetes tipo 1.</p>
+          <span class="card-tag">LXIII Legislatura</span>
         </div>
 
         <!-- TARJETA 5 -->
         <div class="card">
-          <div class="card-icon">👩‍💼</div>
-          <h3 class="card-title">Empoderamiento Femenino</h3>
-          <p class="card-desc">
-            <!-- DESCRIBE el programa o iniciativa para mujeres -->
-            Talleres de emprendimiento y capacitación laboral para mujeres jefas de familia
-            en el distrito.
-          </p>
-          <span class="card-tag">2023</span>
+          <div class="card-icon">🏥</div>
+          <h3 class="card-title">Somos Uno</h3>
+          <p class="card-desc">Insulina, sensores, insumos y atención gratuita para niñas, niños y jóvenes de hasta 23 años con diabetes tipo 1. El Centro D1A, único en su tipo en el país, está en Zapopan.</p>
+          <span class="card-tag">Programa</span>
         </div>
 
         <!-- TARJETA 6 -->
         <div class="card">
-          <div class="card-icon">🏘️</div>
-          <h3 class="card-title">Infraestructura Comunitaria</h3>
-          <p class="card-desc">
-            <!-- DESCRIBE obra pública, calles, parques, alumbrado, etc. -->
-            Gestión de obra pública para pavimentación y mejora de infraestructura
-            en colonias prioritarias.
-          </p>
-          <span class="card-tag">2022</span>
+          <div class="card-icon">🎗️</div>
+          <h3 class="card-title">Ley de Cáncer en la Infancia y la Adolescencia</h3>
+          <p class="card-desc">Las niñas y los niños con cáncer en Jalisco tienen cobertura médica universal.</p>
+          <span class="card-tag">LXIII Legislatura</span>
+        </div>
+
+        <!-- TARJETA 7 -->
+        <div class="card">
+          <div class="card-icon">💊</div>
+          <h3 class="card-title">Sigamos Adelante: Mujeres que Luchan Contra el Cáncer</h3>
+          <p class="card-desc">40 millones de pesos del Presupuesto 2026 para que las mujeres sin seguridad social con cáncer de mama o cervicouterino no dejen su tratamiento.</p>
+          <span class="card-tag">2026</span>
+        </div>
+
+        <!-- TARJETA 8 -->
+        <div class="card">
+          <div class="card-icon">🌸</div>
+          <h3 class="card-title">Menopausia Digna</h3>
+          <p class="card-desc">Para que la red estatal de salud acompañe a las mujeres en el climaterio y la menopausia.</p>
+          <span class="card-tag">2026</span>
         </div>
 
       </div><!-- /carousel-track -->
@@ -261,28 +260,114 @@
     <div class="carousel-dots" id="carouselDots"></div>
   </section>
 
+  <!-- ═══════════════════════════ ZAPOPAN EN EL MUNDO ═══════════════════════════ -->
+  <section class="world-section" id="zapopan-mundo">
+    <div class="world-header">
+      <span class="section-label light">Internacional</span>
+      <h2 class="section-title light">De Zapopan al mundo</h2>
+    </div>
+    <p class="world-intro">Lo que hemos construido en Zapopan y en Jalisco hoy es referencia fuera de México. Llevo nuestras leyes a foros internacionales para sumar aliados y aprender de otros países.</p>
+
+    <div class="world-list">
+
+      <div class="world-item">
+        <div class="world-meta">
+          <span class="world-place">Washington, D.C.</span>
+          <span class="world-year">2026</span>
+        </div>
+        <div class="world-body">
+          <h3 class="world-title">Organización Panamericana de la Salud</h3>
+          <p class="world-desc">Primera legisladora invitada en la historia a hablar ante el Consejo Directivo de la OPS, como representante de UNITE, la red global de parlamentarios por la salud. Presenté como caso de éxito las leyes de Jalisco en cáncer infantil, cáncer en mujeres, diabetes tipo 1 y autismo, y por qué tener presupuesto garantizado por ley hace la diferencia.</p>
+        </div>
+      </div>
+
+      <div class="world-item">
+        <div class="world-meta">
+          <span class="world-place">Estados Unidos</span>
+          <span class="world-year">2026</span>
+        </div>
+        <div class="world-body">
+          <h3 class="world-title">Harvard Kennedy School</h3>
+          <p class="world-desc">Programa Emerging Leaders.</p>
+        </div>
+      </div>
+
+      <div class="world-item">
+        <div class="world-meta">
+          <span class="world-place">Brasil</span>
+          <span class="world-year">2026</span>
+        </div>
+        <div class="world-body">
+          <h3 class="world-title">Foro MIND360</h3>
+          <p class="world-desc">Compartí con líderes de América Latina el modelo de Jalisco para garantizar tratamiento y atención integral a personas con diabetes tipo 1.</p>
+        </div>
+      </div>
+
+      <div class="world-item">
+        <div class="world-meta">
+          <span class="world-place">Nueva York</span>
+          <span class="world-year">2025</span>
+        </div>
+        <div class="world-body">
+          <h3 class="world-title">Sede de la ONU</h3>
+          <p class="world-desc">Panelista en el foro "La Salud como Componente Esencial de Ciudades Familiarmente Sostenibles", donde presenté Somos Uno, el programa de atención integral gratuita para niñas, niños, adolescentes y jóvenes con diabetes tipo 1.</p>
+        </div>
+      </div>
+
+      <div class="world-item">
+        <div class="world-meta">
+          <span class="world-place">Uruguay</span>
+          <span class="world-year">2024</span>
+        </div>
+        <div class="world-body">
+          <h3 class="world-title">Seguridad Vial · Fondo Conjunto México-Uruguay</h3>
+          <p class="world-desc">Presenté la Ley de Movilidad, Seguridad Vial y Transporte de Jalisco y los resultados del proyecto de entornos escolares del Gobierno de Jalisco.</p>
+        </div>
+      </div>
+
+      <div class="world-item">
+        <div class="world-meta">
+          <span class="world-place">Estados Unidos</span>
+          <span class="world-year">2017</span>
+        </div>
+        <div class="world-body">
+          <h3 class="world-title">Programa de Liderazgo para Visitantes Internacionales</h3>
+          <p class="world-desc">Seleccionada por el Departamento de Estado para el programa "Youth, Inspiring Leadership and Civic Participation", con estancias en Washington, Boston, Portland y Ohio, junto a líderes de otros 21 países.</p>
+        </div>
+      </div>
+
+      <div class="world-item">
+        <div class="world-meta">
+          <span class="world-place">Washington, D.C.</span>
+          <span class="world-year"></span>
+        </div>
+        <div class="world-body">
+          <h3 class="world-title">George Washington University</h3>
+          <p class="world-desc">Maestría en Gobernanza Estratégica y Comunicación Política.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ═══════════════════════════ SECCIÓN COMPLEMENTARIA ═══════════════════════════ -->
-  <section class="about about-reverse" id="seccion-complementaria">
+  <!-- ═══════════════════════════ EQUIPO ═══════════════════════════ -->
+  <section class="about about-reverse" id="equipo">
     <div class="about-inner">
       <div class="about-image-wrap">
-        <!-- REEMPLAZA src con la imagen que quieras mostrar -->
-        <img src="img/mmonica2024.jpg" alt="Complementaria" class="about-photo" />
+        <!-- REEMPLAZA con foto de MM + Pablo Lemus (y Juan José Frangie si la hay) -->
+        <img src="img/jalimg.jpg" alt="Mónica Magaña con Pablo Lemus" class="about-photo" />
         <div class="about-photo-accent"></div>
       </div>
       <div class="about-text">
-        <span class="section-label">Compromiso</span>
-        <h2 class="section-title">Trabajando por<br>tu comunidad</h2>
+        <span class="section-label">Equipo</span>
+        <h2 class="section-title">Unidos llegamos lejos</h2>
         <p class="about-body">
-          Mi compromiso es claro: estar presente en tu comunidad, escuchar tus necesidades y actuar con responsabilidad. Cada logro que hemos alcanzado es gracias a tu confianza y apoyo constante.
+          Zapopan es hoy una de las mejores ciudades para vivir en México, la primera Ciudad de las Niñas y los Niños del país y un referente de buenos gobiernos. Lo construimos en equipo.
         </p>
         <p class="about-body">
-          Creo firmemente que la política debe ser cercana, accesible y enfocada en resolver los problemas reales de las personas. No se trata solo de promesas, sino de acciones concretas que generen cambios positivos en la vida de todos.
+          Hoy Pablo Lemus encabeza Jalisco, Juan José Frangie encabeza Zapopan y desde el Congreso me toca acompañar ese proyecto.
         </p>
-        <ul class="about-badges">
-          <li>✅ Iniciativas legislativas en beneficio del distrito</li>
-          <li>✅ Atención directa a la comunidad</li>
-          <li>✅ Compromiso transparente y permanente</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -358,21 +443,22 @@
   <section class="timeline-section" id="timeline">
     <div class="timeline-header">
       <span class="section-label">Mi Trayectoria</span>
-      <h2 class="section-title">Trayectoria en<br>30 segundos</h2>
-      <p class="timeline-subtitle">Haz click en cada momento para descubrir el impacto</p>
+      <h2 class="section-title">Mi camino en<br>Zapopan</h2>
+      <p class="timeline-hint">👆 Toca cada año para conocer más</p>
     </div>
 
     <div class="timeline-container">
       <div class="timeline-track">
         <div class="timeline-line"></div>
         
-        <!-- PUNTO 2012 -->
-        <div class="timeline-item" data-year="2012">
+        <!-- PUNTO 2013 -->
+        <div class="timeline-item" data-year="2013">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-year">2012</span>
-            <h3 class="timeline-title">Inicio con proyectos comunitarios</h3>
-            <p class="timeline-preview">Descubro mi vocación de servicio</p>
+            <span class="timeline-year">2013</span>
+            <h3 class="timeline-title">Movimiento Ciudadano</h3>
+            <p class="timeline-preview">Inicio del camino en política</p>
+            <span class="timeline-cta">Ver más →</span>
           </div>
         </div>
 
@@ -382,7 +468,8 @@
           <div class="timeline-content">
             <span class="timeline-year">2015</span>
             <h3 class="timeline-title">Directora del Instituto de la Juventud de Zapopan</h3>
-            <p class="timeline-preview">Programas de apoyo comunitario</p>
+            <p class="timeline-preview">+600 jóvenes beneficiados</p>
+            <span class="timeline-cta">Ver más →</span>
           </div>
         </div>
 
@@ -391,8 +478,9 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <span class="timeline-year">2018</span>
-            <h3 class="timeline-title">Regidora más joven de la Zona Metropolitana de Guadalajara</h3>
-            <p class="timeline-preview">Regidora más Joven</p>
+            <h3 class="timeline-title">Regidora de Zapopan</h3>
+            <p class="timeline-preview">La más joven de la zona metropolitana</p>
+            <span class="timeline-cta">Ver más →</span>
           </div>
         </div>
 
@@ -401,8 +489,9 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <span class="timeline-year">2021</span>
-            <h3 class="timeline-title">Diputada Local</h3>
-            <p class="timeline-preview">Más votada del distrito 10</p>
+            <h3 class="timeline-title">Diputada local</h3>
+            <p class="timeline-preview">🗳️ La más votada de Jalisco · 80,114 votos</p>
+            <span class="timeline-cta">Ver más →</span>
           </div>
         </div>
 
@@ -411,8 +500,31 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <span class="timeline-year">2024</span>
-            <h3 class="timeline-title">Diputada Local</h3>
-            <p class="timeline-preview">Más votada del distrito 10</p>
+            <h3 class="timeline-title">Reelecta y presidenta del Congreso</h3>
+            <p class="timeline-preview">🗳️ Votación más alta del estado · 111,748 votos</p>
+            <span class="timeline-cta">Ver más →</span>
+          </div>
+        </div>
+
+        <!-- PUNTO 2025 -->
+        <div class="timeline-item" data-year="2025">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2025</span>
+            <h3 class="timeline-title">Zapopan en la ONU</h3>
+            <p class="timeline-preview">Panelista en la sede de la ONU · Nueva York</p>
+            <span class="timeline-cta">Ver más →</span>
+          </div>
+        </div>
+
+        <!-- PUNTO 2026 -->
+        <div class="timeline-item" data-year="2026">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2026</span>
+            <h3 class="timeline-title">Nuevas leyes y voz internacional</h3>
+            <p class="timeline-preview">OPS · Harvard Kennedy School · Leyes aprobadas</p>
+            <span class="timeline-cta">Ver más →</span>
           </div>
         </div>
 
@@ -445,9 +557,7 @@
   <!-- ═══════════════════════════ RULETA DE PROPUESTAS ═══════════════════════════ -->
   <section class="wheel-section" id="ruleta">
     <div class="wheel-header">
-      <span class="section-label">Interactivo Viral</span>
-      <h2 class="section-title light">Gira la Ruleta 🎡<br>y descubre propuestas</h2>
-      <p class="wheel-subtitle">Cada giro te muestra una propuesta diferente + video corto</p>
+      <h2 class="section-title light">Gira la ruleta y conoce mi trabajo</h2>
     </div>
 
     <div class="wheel-container">
@@ -478,10 +588,9 @@
     <div class="whatsapp-inner">
       <div class="wa-text">
         <span class="section-label">Contacto Directo</span>
-        <h2 class="section-title">¿Tienes algún problema que resolver en tu comunidad<br>o propuesta?</h2>
+        <h2 class="section-title">¿Tienes algún problema en tu colonia o una propuesta?</h2>
         <p class="wa-body">
-          Escanea el código QR con tu celular para escribirme directamente por WhatsApp.
-          Tu voz importa y estoy aquí para escucharte.
+          Escanea el código con tu celular y escríbeme directo por WhatsApp. Aquí estoy para escucharte.
         </p>
         <a href="https://wa.me/5213318574935" target="_blank" class="btn-primary wa-btn">
           <!-- REEMPLAZA el número con el número real de WhatsApp -->
@@ -495,21 +604,89 @@
           2. Genera un QR con la URL: https://wa.me/521TUNUMERO
           3. Descarga la imagen y reemplaza src abajo
         -->
-        <img src="img\canal_de_difusion.jpg" alt="QR WhatsApp Mónica Magaña" class="qr-img" />
+        <img src="img/canal_de_difusion.jpg" alt="QR WhatsApp Mónica Magaña" class="qr-img" />
         <p class="qr-hint">Escanea para escribirme</p>
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════════ FORMULARIO DE CONTACTO ═══════════════════════════ -->
+  <section class="contact-section" id="contacto" style="display:none">
+    <div class="contact-inner">
+
+      <div class="contact-header">
+        <span class="section-label">Contacto Formal</span>
+        <h2 class="section-title">¿Tienes alguna propuesta?</h2>
+        <p class="contact-subtitle">Cuéntanos tu situación y te damos seguimiento personalizado. Todos los mensajes son leídos.</p>
+      </div>
+
+      <form id="form-contacto" class="contact-form" novalidate>
+
+        <!-- Honeypot anti-spam -->
+        <input name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="f-nombre">Nombre completo</label>
+            <input id="f-nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+          </div>
+
+          <div class="form-group">
+            <label for="f-telefono">Teléfono</label>
+            <input id="f-telefono" name="telefono" type="tel" placeholder="10 dígitos" required>
+          </div>
+
+          <div class="form-group">
+            <label for="f-colonia">Colonia</label>
+            <input id="f-colonia" name="colonia" type="text" placeholder="Tu colonia" required>
+          </div>
+
+          <div class="form-group">
+            <label for="f-tema">Tema</label>
+            <input id="f-tema" name="tema" type="text" placeholder="¿Sobre qué es tu mensaje?" required>
+          </div>
+
+          <div class="form-group full">
+            <label for="f-mensaje">Tu mensaje</label>
+            <textarea id="f-mensaje" name="mensaje" placeholder="Cuéntanos tu problema o propuesta con el mayor detalle posible" required></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label class="form-checkbox-label">
+              <input type="checkbox" name="acepta_info" class="form-checkbox-input">
+              <span>Acepto recibir información sobre actividades e iniciativas (opcional)</span>
+            </label>
+          </div>
+
+          <div class="form-group full">
+            <p class="form-aviso">
+              Tus datos se usan exclusivamente para atender tu solicitud.
+              Consulta nuestro <a href="aviso-de-privacidad.html">aviso de privacidad</a>.
+            </p>
+          </div>
+
+        </div><!-- /form-grid -->
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary form-submit-btn">Enviar solicitud</button>
+          <p id="form-estado" aria-live="polite"></p>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
   <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
-  <footer class="footer" id="contacto">
+  <footer class="footer">
     <div class="footer-top">
 
       <div class="footer-col footer-brand">
         <img src="img/icono.ico" alt="Logo" class="footer-logo" />
         <p class="footer-desc">
-          Mónica Magaña, Diputada Local por Jalisco.<br>
-          Trabajando cada día por un Jalisco mejor.
+          Mónica Magaña · Diputada Local por Zapopan.<br>
+          Siempre Zapopan 🧡
         </p>
       </div>
 
@@ -562,23 +739,12 @@
         </address>
       </div>
 
-      <div class="footer-col">
-        <h4 class="footer-col-title">Programas Sociales</h4>
-        <ul class="footer-links">
-          <li><a href="https://www.gob.mx/bienestar" target="_blank">Programas Bienestar Federal</a></li>
-          <li><a href="https://jalisco.gob.mx/servicios" target="_blank">Servicios Gobierno de Jalisco</a></li>
-          <li><a href="https://www.imss.gob.mx" target="_blank">IMSS – Servicios de Salud</a></li>
-          <li><a href="https://www.sep.gob.mx" target="_blank">SEP – Educación</a></li>
-          <li><a href="https://www.infonavit.org.mx" target="_blank">INFONAVIT – Vivienda</a></li>
-          <!-- AGREGA más programas relevantes para tu distrito -->
-        </ul>
-      </div>
 
     </div><!-- /footer-top -->
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Mónica Magaña · Diputada Local por Jalisco. Todos los derechos reservados.</p>
-      <p class="footer-credit">Hecho con compromiso por Jalisco 🧡</p>
+      <p>&copy; <span id="copyright-year"></span> Mónica Magaña · Diputada Local por Jalisco. Todos los derechos reservados.</p>
+      <p class="footer-credit">Siempre Zapopan 🧡</p>
     </div>
   </footer>
 
