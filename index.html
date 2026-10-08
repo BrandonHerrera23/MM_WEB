@@ -68,7 +68,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 
 </head>
 
@@ -87,6 +87,7 @@
 
    <img src="img/whats.png"
         alt="WhatsApp"
+        width="30" height="30"
         style="width:30px;">
 </a>
 
@@ -105,7 +106,7 @@
     <div class="navbar-inner">
       <div class="navbar-logo">
         <!-- REEMPLAZA src con tu logo del partido -->
-        <img src="img/icono.ico" alt="Logo Partido" class="logo-img" />
+        <img src="img/icono.ico" alt="Logo Partido" class="logo-img" width="44" height="44" />
         <span class="logo-text">Diputada Mónica Magaña</span>
       </div>
       <nav class="navbar-links">
@@ -121,10 +122,12 @@
     </div>
   </header>
 
+  <main id="main-content">
+
   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
   <section class="hero" id="inicio">
     <!-- Video de fondo — reemplaza src con tu video -->
-    <video class="hero-video" autoplay muted loop playsinline>
+    <video class="hero-video" autoplay muted loop playsinline poster="img/Monica.jpg">
       <source src="img/VideoFondo.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
@@ -153,7 +156,7 @@
     <div class="about-inner">
       <div class="about-image-wrap">
         <!-- REEMPLAZA src con foto oficial de Mónica -->
-        <img src="img/acad.jpg" alt="Mónica Magaña" class="about-photo" />
+        <img src="img/acad.jpg" alt="Mónica Magaña" class="about-photo" width="460" height="613" />
         <div class="about-photo-accent"></div>
       </div>
       <div class="about-text">
@@ -356,7 +359,7 @@
     <div class="about-inner">
       <div class="about-image-wrap">
         <!-- REEMPLAZA con foto de MM + Pablo Lemus (y Juan José Frangie si la hay) -->
-        <img src="img/jalimg.jpg" alt="Mónica Magaña con Pablo Lemus" class="about-photo" />
+        <img src="img/jalimg.jpg" alt="Mónica Magaña con Pablo Lemus" class="about-photo" width="460" height="613" loading="lazy" />
         <div class="about-photo-accent"></div>
       </div>
       <div class="about-text">
@@ -604,7 +607,7 @@
           2. Genera un QR con la URL: https://wa.me/521TUNUMERO
           3. Descarga la imagen y reemplaza src abajo
         -->
-        <img src="img/canal_de_difusion.jpg" alt="QR WhatsApp Mónica Magaña" class="qr-img" />
+        <img src="img/canal_de_difusion.jpg" alt="QR WhatsApp Mónica Magaña" class="qr-img" width="200" height="200" loading="lazy" />
         <p class="qr-hint">Escanea para escribirme</p>
       </div>
     </div>
@@ -678,12 +681,14 @@
     </div>
   </section>
 
+  </main><!-- /main-content -->
+
   <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
   <footer class="footer">
     <div class="footer-top">
 
       <div class="footer-col footer-brand">
-        <img src="img/icono.ico" alt="Logo" class="footer-logo" />
+        <img src="img/icono.ico" alt="Logo" class="footer-logo" width="48" height="48" loading="lazy" />
         <p class="footer-desc">
           Mónica Magaña · Diputada Local por Zapopan.<br>
           Siempre Zapopan 🧡
