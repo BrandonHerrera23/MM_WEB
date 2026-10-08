@@ -122,6 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   revealElements.forEach(el => observer.observe(el));
 
+  /* ─── COPYRIGHT AÑO DINÁMICO ─────────────────────────── */
+  const yearEl = document.getElementById('copyright-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   /* ─── SMOOTH SCROLL ───────────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -130,13 +134,65 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - 128; /* navbar ~80 + franja anuncio 48 */
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
 
 });
+
+/* ═══════════════════════════════════════════════════════════
+   FORMULARIO DE CONTACTO → GOOGLE SHEETS
+═══════════════════════════════════════════════════════════ */
+
+(function initFormContacto() {
+
+  const form   = document.getElementById('form-contacto');
+  const estado = document.getElementById('form-estado');
+  if (!form || !estado) return;
+
+  const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbyGamY4jYZXCrtCh3UJ1P5wgX_s8wOh2GUiUuOINpgSIO66oyuVBl-0-PMhYBWwvilG/exec";
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Honeypot anti-spam
+    if (form.website.value) return;
+
+    const btn = form.querySelector('.form-submit-btn');
+
+    const datos = {
+      nombre:      form.nombre.value.trim(),
+      telefono:    form.telefono.value.trim(),
+      colonia:     form.colonia.value.trim(),
+      tema:        form.tema.value,
+      mensaje:     form.mensaje.value.trim(),
+      acepta_info: form.acepta_info.checked ? 'Sí' : 'No'
+    };
+
+    btn.disabled = true;
+    estado.className = 'loading';
+    estado.textContent = 'Enviando…';
+
+    try {
+      await fetch(URL_SCRIPT, {
+        method: 'POST',
+        mode:   'no-cors',
+        body:   JSON.stringify(datos)
+      });
+      estado.className = 'success';
+      estado.textContent = '¡Gracias! Recibimos tu mensaje, te daremos seguimiento pronto.';
+      form.reset();
+    } catch {
+      estado.className = 'error';
+      estado.textContent = 'Hubo un error al enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+})();
 
 /* ═══════════════════════════════════════════════════════════
    CRUCIGRAMA INTERACTIVO
@@ -631,39 +687,48 @@ document.addEventListener('DOMContentLoaded', () => {
      Personaliza con tus datos reales: foto, logro, impacto
   ─────────────────────────────────────────────────────── */
   const timelineData = {
-    '2012': {
-      title: 'Inicio con proyectos comunitarios',
-      description: 'Comenzó mi trayectoria en la administración pública, enfocándome en políticas de inclusión y acceso a servicios básicos para comunidades vulnerables.',
-      impact: 'A mis 17 años descubrí mi vocación por el servicio a los demás. Junto a un grupo de amigos, nos lanzamos a colonias marginadas de la Ciudad apoyando a personas en situación de pobreza.',
-      image: 'img/monica2013.jpg' // Reemplaza con imagen real del 2018
+    '2013': {
+      title: 'Movimiento Ciudadano',
+      description: 'Llegué a Movimiento Ciudadano como voluntaria, con la idea de cambiar la forma de hacer política. En 2013 me sumé al área jurídico-electoral del partido y en 2014, a los 19 años, asumí la subdelegación estatal de Jóvenes en Movimiento.',
+      impact: 'Primer paso en la política: construir un movimiento desde abajo, con convicción.',
+      image: 'img/monica2013.jpg'
     },
     '2015': {
       title: 'Directora del Instituto de la Juventud de Zapopan',
-      description: 'En 2015 fui nombrada Directora del Instituto de la Juventud de Zapopan, convirtiendome en una de las funcionarias más jóvenes en ocupar este cargo en la Zona Metropolitana de Guadalajara, impulsando programas para jóvenes en situación de riesgo por violencia y adicciones.',
-      impact: 'más de 600 jóvenes fueron beneficiados con los diversos programas del IJZ durante 2015 a 2018.',
-      image: 'img/trayectoriap.jpg' // Reemplaza con imagen real del 2015
+      description: 'Coordiné la vinculación con jóvenes en la campaña de Pablo Lemus y después formé parte de su primer gobierno en Zapopan, al frente de las políticas para las juventudes del municipio.',
+      impact: 'Más de 600 jóvenes fueron beneficiados con los diversos programas del IJZ durante 2015 a 2018.',
+      image: 'img/trayectoriap.jpg'
     },
     '2018': {
-      title: 'Regidora más joven de la Zona Metropolitana de Guadalajara',
-      description: 'En 2018 fue electa Regidora de Zapopan, convirtiéndose en la más joven de la Zona Metropolitana de Guadalajara.  Desde la presidencia de la Comisión Colegiada y Permanente de Juventud y Deporte, consolidó su liderazgo en temas de participación ciudadana, desarrollo social, deporte y prevención.',
+      title: 'Regidora de Zapopan',
+      description: 'La regidora más joven de la zona metropolitana de Guadalajara. Desde el Ayuntamiento acompañé el segundo gobierno de Pablo Lemus en Zapopan.',
       impact: 'Impulsó y logró la aprobación del Nuevo Reglamento de la Vía RecreActiva, que fortaleció el programa dominical más importante de activación física y convivencia familiar de Zapopan.',
-      image: 'img/compromiso.jpg' // Reemplaza con imagen real del 2018
+      image: 'img/compromiso.jpg'
     },
     '2021': {
-      title: 'Diputada local y promotora de leyes clave en Jalisco',
-      description: 'Fue electa Diputada local por el Distrito 10 con votación histórica y ha impulsado iniciativas en salud pública, movilidad segura y atención integral para niñas y niños con diabetes tipo 1, además de presidir la Comisión de Higiene y Salud Pública del Congreso del Estado.',
-      impact: 'obtuvo más de 80 mil votos en su elección al Congreso estatal.',
-      image: 'img/trayectoriap2.jpg' // Reemplaza con imagen real actual
+      title: 'Diputada local',
+      description: 'La diputada más votada de Jalisco y la primera mujer en más de 20 años en ganar el Distrito 10. Presidí la Comisión de Movilidad e impulsé las leyes de movilidad, cáncer infantil y diabetes tipo 1.',
+      impact: 'Obtuvo 80,114 votos — la votación más alta del estado en su momento.',
+      image: 'img/trayectoriap2.jpg'
     },
     '2024': {
-      title: 'Diputada más votada del Distrito 10 (Zapopan)',
-      description: 'En 2024 fue electa Diputada local por el Distrito 10 de Zapopan con 111,748 votos, la votación más alta registrada en ese distrito, consolidando un respaldo histórico de la ciudadanía.',
-      impact: 'En su elección anterior (2021) ya había logrado 80,114 votos, también récord en ese momento para el distrito.',
-      image: 'img/mmonica2024.jpg' // Reemplaza con imagen real actual
+      title: 'Reelecta y presidenta del Congreso',
+      description: 'Zapopan me reeligió con la votación más alta del estado. Presidí el Congreso de Jalisco de noviembre de 2024 a abril de 2025, la más joven en ese cargo. Fortalecimos el Archivo General del Congreso y firmamos con los otros dos poderes del Estado y UNICEF un convenio contra el reclutamiento de niñas, niños y adolescentes.',
+      impact: '111,748 votos — récord histórico para el Distrito 10.',
+      image: 'img/mmonica2024.jpg'
+    },
+    '2025': {
+      title: 'Zapopan en la ONU',
+      description: 'Fui panelista en la sede de la ONU en Nueva York, donde presenté Somos Uno, y presenté en la FIL de Guadalajara mi cuento "María y la llegada de la DM1".',
+      impact: 'Zapopan y Jalisco como modelo internacional en atención integral a la diabetes tipo 1.',
+      image: 'img/mmonica2024.jpg' // Placeholder — reemplazar con imagen del 2025
+    },
+    '2026': {
+      title: 'Nuevas leyes y voz internacional',
+      description: 'Se aprobaron la Ley Jalisco de Colores y la ley contra el reclutamiento de niñas, niños y adolescentes. Fui la primera legisladora invitada a hablar ante el Consejo Directivo de la OPS y curso el programa Emerging Leaders de la Harvard Kennedy School.',
+      impact: 'Jalisco como referente de legislación en salud y protección infantil a nivel internacional.',
+      image: 'img/unicef.jpg' // Placeholder — reemplazar con imagen del 2026
     }
-
-
-
   };
 
   function showModal(year) {

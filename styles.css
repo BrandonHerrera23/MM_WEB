@@ -109,7 +109,7 @@ address { font-style: normal; }
 
 /* ─── SCROLL MARGIN (offset para header fijo) ───────────── */
 section[id] {
-  scroll-margin-top: 90px;
+  scroll-margin-top: 104px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -117,7 +117,7 @@ section[id] {
 ═══════════════════════════════════════════════════════════ */
 .navbar {
   position: fixed;
-  top: 48px; /* 48px = altura de .announcement-bar; vuelve a 0 si se quita la franja */
+  top: 60px; /* 60px = altura de .announcement-bar; vuelve a 0 si se quita la franja */
   left: 0; right: 0;
   z-index: 1000;
   background: transparent;
@@ -224,10 +224,11 @@ section[id] {
   inset: 0;
   z-index: 1;
   background: linear-gradient(
-    135deg,
-    rgba(13,13,13,0.55) 0%,
-    rgba(13,13,13,0.38) 50%,
-    rgba(255,102,0,0.20) 100%
+    to bottom,
+    rgba(13,13,13,0.65) 0%,
+    rgba(13,13,13,0.15) 38%,
+    rgba(13,13,13,0.15) 62%,
+    rgba(13,13,13,0.8) 100%
   );
 }
 .hero-content {
@@ -334,14 +335,14 @@ section[id] {
 }
 .about-photo-accent {
   position: absolute;
-  bottom: -20px;
-  left: -20px;
-  width: 60%;
-  height: 60%;
+  bottom: -24px;
+  left: -24px;
+  width: 65%;
+  height: 65%;
   border-radius: var(--radius-lg);
   background: var(--orange);
   z-index: 0;
-  opacity: 0.18;
+  opacity: 0.32;
 }
 .about-text {
   display: flex;
@@ -364,10 +365,18 @@ section[id] {
   border-top: 1px solid var(--gray-200);
 }
 .about-badges li {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--black-soft);
   font-weight: 500;
-  padding-left: 0.25rem;
+  padding: 0.6rem 1rem;
+  background: rgba(255,102,0,0.05);
+  border: 1px solid rgba(255,102,0,0.2);
+  border-radius: 8px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.about-badges li:hover {
+  background: rgba(255,102,0,0.1);
+  border-color: rgba(255,102,0,0.45);
 }
 
 /* ─── ABOUT REVERSE (imagen a la derecha) ──────────────────── */
@@ -438,9 +447,8 @@ section[id] {
   top: 0; left: 0; right: 0;
   height: 3px;
   background: var(--orange);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
+  opacity: 0.25;
+  transition: opacity 0.4s ease;
 }
 .card:hover { 
   background: rgba(255,255,255,0.08);
@@ -448,8 +456,19 @@ section[id] {
   border-color: rgba(255,102,0,0.3);
   box-shadow: 0 20px 50px rgba(255,102,0,0.15);
 }
-.card:hover::before { transform: scaleX(1); }
-.card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+.card:hover::before { opacity: 1; }
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,102,0,0.12);
+  border-radius: 12px;
+  border: 1px solid rgba(255,102,0,0.2);
+}
 .card-title {
   font-family: var(--font-display);
   font-size: 1.2rem;
@@ -754,6 +773,7 @@ section[id] {
   background: var(--black);
   color: rgba(255,255,255,0.75);
   padding: 5rem 2rem 2rem;
+  border-top: 3px solid var(--orange);
 }
 .footer-top {
   max-width: 1280px;
@@ -1879,48 +1899,154 @@ section[id] {
 /* ═══════════════════════════════════════════════════════════
    FRANJA DE ANUNCIO
    Para quitar: comenta el <div class="announcement-bar"> en
-   index.html y cambia .navbar { top: 40px } a top: 0
+   index.html y cambia .navbar { top: 60px } a top: 0
 ═══════════════════════════════════════════════════════════ */
 .announcement-bar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1001;
-  height: 48px;
-  background: var(--black);
-  border-bottom: 1px solid rgba(255, 102, 0, 0.3);
+  height: 60px;
+  background: linear-gradient(100deg, var(--orange-dark) 0%, var(--orange) 55%, var(--orange-light) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  animation: bar-slide-down 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes bar-slide-down {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+.announcement-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: -60%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  animation: ann-shimmer 4s ease-in-out infinite 0.8s;
+  pointer-events: none;
+}
+@keyframes ann-shimmer {
+  0%   { left: -60%; }
+  100% { left: 120%; }
 }
 .announcement-bar a {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  transition: color var(--transition);
+  gap: 1.1rem;
   text-decoration: none;
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  padding: 0 2rem;
+  max-width: 980px;
+  width: 100%;
+  justify-content: center;
+  transition: opacity 0.2s ease;
 }
-.announcement-bar a:hover { color: var(--white); }
-.announcement-bar .ann-label {
-  font-weight: 700;
-  color: var(--orange-light);
-  letter-spacing: 0.05em;
-}
-.announcement-bar .ann-arrow {
-  font-size: 0.8rem;
-  color: var(--orange);
-  transition: transform var(--transition);
-}
-.announcement-bar a:hover .ann-arrow { transform: translateX(4px); }
+.announcement-bar a:hover { opacity: 0.87; }
 
+/* ── Zona izquierda: número + etiqueta apilados ── */
+.ann-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.05rem;
+  flex-shrink: 0;
+}
+.ann-number {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.ann-number::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: ann-pulse 2s ease-in-out infinite;
+}
+@keyframes ann-pulse {
+  0%, 100% { opacity: 1;   transform: scale(1);    }
+  50%       { opacity: 0.3; transform: scale(0.55); }
+}
+.ann-label {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ── Separador vertical ── */
+.ann-sep {
+  color: rgba(255,255,255,0.3);
+  font-weight: 200;
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* ── Zona central: descripción ── */
+.ann-desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ── Zona derecha: flecha-botón ── */
+.ann-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 28px;
+  background: rgba(255,255,255,0.92);
+  color: var(--orange-dark);
+  border-radius: 50px;
+  font-weight: 900;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.2s ease;
+  animation: arrow-nudge 3.5s ease-in-out infinite 2.5s;
+}
+@keyframes arrow-nudge {
+  0%, 75%, 100% { transform: translateX(0); }
+  87%            { transform: translateX(5px); }
+}
+.announcement-bar a:hover .ann-arrow {
+  background: var(--white);
+  transform: translateX(6px);
+  animation: none;
+}
+
+@media (max-width: 768px) {
+  .ann-sep,
+  .ann-desc { display: none; }
+  .announcement-bar a {
+    justify-content: space-between;
+    padding: 0 1.25rem;
+    gap: 0.75rem;
+  }
+}
 @media (max-width: 480px) {
-  .announcement-bar { height: 40px; }
-  .announcement-bar a { font-size: 0.7rem; }
-  .navbar { top: 40px; }
+  .announcement-bar { height: 52px; }
+  .ann-number { font-size: 1.25rem; }
+  .ann-label { font-size: 0.55rem; }
+  .navbar { top: 52px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1949,7 +2075,7 @@ section[id] {
 }
 .world-intro {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
   max-width: 640px;
   margin: 1.25rem auto 4rem;
@@ -1998,9 +2124,9 @@ section[id] {
 }
 .world-year {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 4.5rem;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.07);
   line-height: 1;
 }
 .world-title {
@@ -2013,7 +2139,7 @@ section[id] {
 }
 .world-desc {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.75;
 }
 
