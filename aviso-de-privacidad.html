@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aviso de Privacidad – Mónica Magaña</title>
+  <meta name="description" content="Aviso de privacidad de Mónica Magaña, Diputada Local por el Distrito 10 de Jalisco.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://monicamagana.mx/aviso-de-privacidad">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .privacy-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+    .privacy-page .section-label { margin-bottom: 1rem; }
+    .privacy-page h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+    .privacy-meta {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .privacy-page h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 2.5rem 0 0.75rem;
+    }
+    .privacy-page p,
+    .privacy-page li {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+    .privacy-page ul { padding-left: 1.4rem; list-style: disc; }
+    .privacy-page a { color: var(--orange); text-decoration: underline; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--orange);
+      margin-bottom: 2.5rem;
+      transition: gap var(--transition);
+    }
+    .back-link:hover { gap: 0.75rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">
+        <img src="img/icono.ico" alt="Logo" class="logo-img" />
+        <span class="logo-text">Diputada Mónica Magaña</span>
+      </div>
+      <nav class="navbar-links">
+        <a href="/">Inicio</a>
+        <a href="/#sobre-mi">Sobre Mí</a>
+        <a href="/#logros">Logros</a>
+        <a href="/#timeline">Trayectoria</a>
+        <a href="/#contacto" class="btn-nav">Contacto</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="privacy-page">
+
+    <a href="index.html" class="back-link">← Volver al inicio</a>
+
+    <span class="section-label">Legal</span>
+    <h1>Aviso de Privacidad</h1>
+    <p class="privacy-meta">Última actualización: <!-- FECHA --> &nbsp;·&nbsp; Responsable: Mónica Magaña</p>
+
+    <!-- ═══════════════ CONTENIDO — AGREGAR TEXTO REAL ═══════════════ -->
+
+    <h2>1. Responsable del tratamiento de datos</h2>
+    <p><!-- Nombre completo, cargo, dirección, correo de contacto --></p>
+
+    <h2>2. Datos personales que se recaban</h2>
+    <p><!-- Nombre, teléfono, colonia, tema, mensaje, preferencia de comunicación --></p>
+
+    <h2>3. Finalidades del tratamiento</h2>
+    <p><!-- Atención de solicitudes ciudadanas, seguimiento de propuestas, comunicación de actividades (con consentimiento) --></p>
+
+    <h2>4. Transferencia de datos</h2>
+    <p><!-- Si se comparte con terceros o no; base legal --></p>
+
+    <h2>5. Derechos ARCO</h2>
+    <p><!-- Cómo ejercer acceso, rectificación, cancelación y oposición --></p>
+
+    <h2>6. Uso de cookies</h2>
+    <p><!-- Google Analytics, etc. --></p>
+
+    <h2>7. Cambios al aviso</h2>
+    <p><!-- Política de actualizaciones --></p>
+
+    <h2>8. Contacto</h2>
+    <p><!-- Correo o dirección para dudas sobre privacidad --></p>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-bottom" style="padding-top:2rem;">
+      <p>&copy; <span id="copyright-year"></span> Mónica Magaña · Diputada Local por Jalisco. Todos los derechos reservados.</p>
+      <p class="footer-credit"><a href="index.html" style="color:rgba(255,255,255,0.4);">← Volver al inicio</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.querySelector('.navbar-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    }
+    // Copyright year
+    const yr = document.getElementById('copyright-year');
+    if (yr) yr.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

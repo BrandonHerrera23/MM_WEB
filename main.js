@@ -28,9 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
     });
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+      });
     });
   }
 
@@ -108,19 +112,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── REVEAL ON SCROLL ────────────────────────────────── */
   const revealElements = document.querySelectorAll(
-    '.about-inner, .about-image-wrap, .about-text, .card, .wa-text, .wa-qr-wrap, .footer-col'
+    '.about-image-wrap, .about-text, .world-item, .wa-text, .wa-qr-wrap, .footer-col, .logros-header, .world-header'
   );
-  revealElements.forEach((el, i) => {
-    el.classList.add('reveal');
-    el.style.transitionDelay = `${(i % 3) * 100}ms`;
+  revealElements.forEach(el => el.classList.add('reveal'));
+
+  // Stagger dentro de cada contenedor padre
+  const seenParents = new Set();
+  revealElements.forEach(el => {
+    const parent = el.parentElement;
+    if (!seenParents.has(parent)) {
+      seenParents.add(parent);
+      Array.from(parent.querySelectorAll(':scope > .reveal')).forEach((sib, i) => {
+        sib.style.transitionDelay = `${i * 70}ms`;
+      });
+    }
   });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   revealElements.forEach(el => observer.observe(el));
+
+  /* ─── NAVBAR: SECCIÓN ACTIVA ──────────────────────────── */
+  const sections      = document.querySelectorAll('section[id]');
+  const navLinksAll   = document.querySelectorAll('.navbar-links a[href^="#"]');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = `#${entry.target.id}`;
+        navLinksAll.forEach(link =>
+          link.classList.toggle('nav-active', link.getAttribute('href') === id)
+        );
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '-100px 0px -45% 0px' });
+  sections.forEach(s => sectionObserver.observe(s));
 
   /* ─── COPYRIGHT AÑO DINÁMICO ─────────────────────────── */
   const yearEl = document.getElementById('copyright-year');
@@ -425,130 +453,157 @@ document.addEventListener('DOMContentLoaded', () => {
 
 (function initRuleta() {
 
-  const canvas              = document.getElementById('wheelCanvas');
-  const spinBtn             = document.getElementById('spinBtn');
-  const resultDiv           = document.getElementById('wheelResult');
-  const titleEl             = document.getElementById('proposalTitle');
-  const descEl              = document.getElementById('proposalDesc');
-  const videoContainer      = document.getElementById('proposalVideoContainer');
+  const canvas         = document.getElementById('wheelCanvas');
+  const spinBtn        = document.getElementById('spinBtn');
+  const spinBtnText    = document.getElementById('spinBtnText');
+  const titleEl        = document.getElementById('proposalTitle');
+  const descEl         = document.getElementById('proposalDesc');
+  const videoContainer = document.getElementById('proposalVideoContainer');
+  const resultContent  = document.getElementById('resultContent');
+  const placeholder    = document.getElementById('resultPlaceholder');
+  const pointer        = document.querySelector('.wheel-pointer');
+  const spinAgainBtn   = document.getElementById('spinAgainBtn');
 
   if (!canvas || !spinBtn) return;
 
   const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height;
-  const CX = W / 2, CY = H / 2, R = CX - 10;
 
-  /* ── PROPUESTAS ─────────────────────────────────────────
-     Para agregar video pon la ruta en video: "img/tu_video.mp4"
-     Si no tienes video déjalo en "" y se ocultará automáticamente.
-  ─────────────────────────────────────────────────────── */
+  // HiDPI support
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const SIZE = 440;
+  canvas.width  = SIZE * dpr;
+  canvas.height = SIZE * dpr;
+  canvas.style.width  = SIZE + 'px';
+  canvas.style.height = SIZE + 'px';
+  ctx.scale(dpr, dpr);
+
+  const CX = SIZE / 2, CY = SIZE / 2;
+  const R  = CX - 14;
+
   const PROPOSALS = [
-    {
-      label: "Transporte Zapopan",
-      color: "#FF6600",
-      text:  "#fff",
-      desc:  "Las niñas y niños ya no pagaran transporte publico",
-      video: "https://www.youtube.com/embed/-98bGv6wQgY"
-    },
-    {
-      label: "La nueva ley de Autismo",
-      color: "#CC4E00",
-      text:  "#fff",
-      desc:  "Tepatitlán #somos uno.",
-      video: "https://www.youtube.com/embed/C9LFxFnmpwU"
-    },
-    {
-      label: "Donde todo empezó",
-      color: "#FF8C3A",
-      text:  "#fff",
-      desc:  "Te muestro un poco sobre el progreso que hemos logrado juntos !",
-      video: "https://www.youtube.com/embed/WCrZztZAo5A"
-    },
-    {
-      label: "Red de Hospitales",
-      color: "#E65C00",
-      text:  "#fff",
-      desc:  "Te hablo de como vamos a crear juntos nuevos hospitales y escuelas.",
-      video: "https://www.youtube.com/embed/7b5NyVQacnE"
-    },
-    {
-      label: "Ella es Mónica Magaña",
-      color: "#FF6600",
-      text:  "#fff",
-      desc:  "Talleres de emprendimiento y capacitación laboral para mujeres jefas de familia. Fortalecer la autonomía económica en el distrito.",
-      video: "https://www.youtube.com/embed/0NwC3YDv1ak"
-    },
-    {
-      label: "Un mensaje para las mujeres",
-      color: "#CC4E00",
-      text:  "#fff",
-      desc:  "Gestión de obra pública: pavimentación, alumbrado y mejora de espacios comunitarios en colonias prioritarias de Zapopan.",
-      video: "https://www.youtube.com/embed/rgzFbUOv6j0"
-    },
-    {
-      label: "Pror Zapopan no paramos",
-      color: "#FF8C3A",
-      text:  "#fff",
-      desc:  "Proyecto de reforestación y creación de áreas verdes en colonias populares. Un Jalisco más verde para las próximas generaciones.",
-      video: "https://www.youtube.com/embed/cv1D8q6951s"
-    },
-    {
-      label: "1000 ACTOS DE AMOR",
-      color: "#E65C00",
-      text:  "#fff",
-      desc:  "Iniciativa para incorporar atención psicológica en centros de salud del distrito. La salud mental es salud.",
-      video: "https://www.youtube.com/embed/f18CqN4-RCw"
-    },
+    { label: "Transporte Zapopan",       desc: "Las niñas y niños ya no pagan transporte público.",                              video: "https://www.youtube.com/embed/-98bGv6wQgY" },
+    { label: "La nueva ley de Autismo",  desc: "Jalisco fue el primer estado con una ley de atención integral al autismo.",     video: "https://www.youtube.com/embed/C9LFxFnmpwU" },
+    { label: "Donde todo empezó",        desc: "El progreso que hemos logrado juntas y juntos en Zapopan.",                     video: "https://www.youtube.com/embed/WCrZztZAo5A" },
+    { label: "Red de Hospitales",        desc: "Nuevos hospitales y escuelas para Zapopan y Jalisco.",                          video: "https://www.youtube.com/embed/7b5NyVQacnE" },
+    { label: "Ella es Mónica Magaña",    desc: "Quién soy y por qué trabajo por Zapopan desde 2013.",                          video: "https://www.youtube.com/embed/0NwC3YDv1ak" },
+    { label: "Mensaje para las mujeres", desc: "Mi compromiso con la autonomía, la salud y la seguridad de las mujeres.",       video: "https://www.youtube.com/embed/rgzFbUOv6j0" },
+    { label: "Por Zapopan, no paramos",  desc: "Seguimos construyendo una ciudad mejor para todas y todos.",                    video: "https://www.youtube.com/embed/cv1D8q6951s" },
+    { label: "1000 Actos de Amor",       desc: "Iniciativa de salud mental: atención psicológica en centros del distrito.",     video: "https://www.youtube.com/embed/f18CqN4-RCw" },
   ];
 
   const N   = PROPOSALS.length;
   const ARC = (2 * Math.PI) / N;
-  let angle   = 0;
+
+  // Anti-repetición: evita mostrar el mismo segmento más de una vez seguida
+  const shownRecently = [];
+  const MAX_RECENT = Math.floor(N / 2); // no más del 50% repetido
+
+  function pickTargetSector() {
+    const available = [];
+    for (let i = 0; i < N; i++) {
+      if (!shownRecently.includes(i)) available.push(i);
+    }
+    const pool = available.length > 0 ? available : Array.from({length: N}, (_, i) => i);
+    const target = pool[Math.floor(Math.random() * pool.length)];
+    shownRecently.push(target);
+    if (shownRecently.length > MAX_RECENT) shownRecently.shift();
+    return target;
+  }
+
+  function computeSpinAngle(target) {
+    // Calcular el ángulo total para que la ruleta termine exactamente en el sector target
+    const ε = ARC * 0.15 + Math.random() * ARC * 0.7; // posición aleatoria dentro del sector
+    const targetNormalized = target * ARC + ε;
+    const pointerAngle = -Math.PI / 2;
+    const targetFinalAngle = pointerAngle - targetNormalized;
+    const extraSpins = (6 + Math.floor(Math.random() * 4)) * 2 * Math.PI;
+    let totalAngle = ((targetFinalAngle - angle) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+    totalAngle += extraSpins;
+    return totalAngle;
+  }
+
+  let angle    = 0;
   let spinning = false;
 
-  function drawWheel(rot) {
-    ctx.clearRect(0, 0, W, H);
+  // Paleta alterna para sectores — 4 tonos naranja
+  const SECTOR_COLORS = ['#FF6600', '#D95800', '#FF7D24', '#E66000'];
 
-    PROPOSALS.forEach((p, i) => {
+  function drawWheel(rot) {
+    ctx.clearRect(0, 0, SIZE, SIZE);
+
+    for (let i = 0; i < N; i++) {
       const start = rot + i * ARC;
       const end   = start + ARC;
+      const mid   = start + ARC / 2;
+
+      // Gradiente radial por sector
+      const gx = CX + Math.cos(mid) * R * 0.55;
+      const gy = CY + Math.sin(mid) * R * 0.55;
+      const grad = ctx.createRadialGradient(gx, gy, 4, CX, CY, R);
+      const base = SECTOR_COLORS[i % SECTOR_COLORS.length];
+      grad.addColorStop(0, base);
+      grad.addColorStop(1, adjustBrightness(base, -35));
 
       ctx.beginPath();
       ctx.moveTo(CX, CY);
       ctx.arc(CX, CY, R, start, end);
       ctx.closePath();
-      ctx.fillStyle   = p.color;
+      ctx.fillStyle = grad;
       ctx.fill();
-      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+
+      // Separadores finos
+      ctx.strokeStyle = 'rgba(0,0,0,0.25)';
       ctx.lineWidth   = 1.5;
       ctx.stroke();
 
+      // Etiqueta del sector
       ctx.save();
       ctx.translate(CX, CY);
-      ctx.rotate(start + ARC / 2);
-      ctx.textAlign    = 'right';
-      ctx.fillStyle    = p.text;
-      ctx.font         = 'bold 12px Arial, sans-serif';
-      ctx.shadowColor  = 'rgba(0,0,0,0.5)';
-      ctx.shadowBlur   = 3;
-      ctx.fillText(p.label, R - 14, 4);
+      ctx.rotate(mid);
+      ctx.textAlign   = 'right';
+      ctx.fillStyle   = 'rgba(255,255,255,0.92)';
+      ctx.font        = 'bold 11.5px "Outfit", Arial, sans-serif';
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur  = 3;
+      ctx.fillText(PROPOSALS[i].label, R - 16, 4.5);
       ctx.restore();
-    });
+    }
 
-    // Círculo central
+    // Aro exterior
     ctx.beginPath();
-    ctx.arc(CX, CY, 24, 0, 2 * Math.PI);
-    ctx.fillStyle   = '#0D0D0D';
-    ctx.fill();
-    ctx.strokeStyle = '#FF6600';
-    ctx.lineWidth   = 3;
+    ctx.arc(CX, CY, R, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+    ctx.lineWidth   = 2.5;
     ctx.stroke();
 
-    ctx.fillStyle  = '#FF6600';
-    ctx.font       = 'bold 11px Arial';
-    ctx.textAlign  = 'center';
-    ctx.shadowBlur = 0;
-    ctx.fillText('MM', CX, CY + 4);
+    // Hub central — gradiente
+    const hubGrad = ctx.createRadialGradient(CX - 5, CY - 5, 2, CX, CY, 30);
+    hubGrad.addColorStop(0, '#2C2C2C');
+    hubGrad.addColorStop(1, '#0D0D0D');
+    ctx.beginPath();
+    ctx.arc(CX, CY, 30, 0, 2 * Math.PI);
+    ctx.fillStyle   = hubGrad;
+    ctx.fill();
+    ctx.strokeStyle = '#FF6600';
+    ctx.lineWidth   = 2.5;
+    ctx.stroke();
+
+    // Texto MM
+    ctx.fillStyle   = '#FF6600';
+    ctx.font        = 'bold 12px "Outfit", Arial, sans-serif';
+    ctx.textAlign   = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.shadowBlur  = 0;
+    ctx.fillText('MM', CX, CY);
+    ctx.textBaseline = 'alphabetic';
+  }
+
+  function adjustBrightness(hex, amount) {
+    const num = parseInt(hex.slice(1), 16);
+    const r = Math.max(0, Math.min(255, (num >> 16) + amount));
+    const g = Math.max(0, Math.min(255, ((num >> 8) & 0xff) + amount));
+    const b = Math.max(0, Math.min(255, (num & 0xff) + amount));
+    return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
   }
 
   drawWheel(angle);
@@ -556,108 +611,93 @@ document.addEventListener('DOMContentLoaded', () => {
   function spin() {
     if (spinning) return;
     spinning = true;
-    spinBtn.disabled    = true;
-    spinBtn.textContent = 'GIRANDO...';
-    resultDiv.style.display = 'none';
+    spinBtn.disabled = true;
+    if (spinBtnText) spinBtnText.textContent = 'GIRANDO…';
+    spinBtn.classList.add('spinning');
 
-    const totalAngle = (5 + Math.floor(Math.random() * 5)) * 2 * Math.PI + Math.random() * 2 * Math.PI;
-    const duration   = 3500;
-    const start      = performance.now();
+    // Ocultar resultado anterior
+    if (resultContent) { resultContent.classList.remove('visible'); resultContent.style.display = 'none'; }
+    if (placeholder)   placeholder.classList.remove('hidden');
+
+    const target     = pickTargetSector();
+    const totalAngle = computeSpinAngle(target);
+    const duration   = 4200;
+    const startTime  = performance.now();
     const startAngle = angle;
 
-    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    // Ease-out cuártico — desaceleración dramática
+    function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
 
     function frame(now) {
-      const progress = Math.min((now - start) / duration, 1);
+      const progress = Math.min((now - startTime) / duration, 1);
       angle = startAngle + totalAngle * easeOut(progress);
       drawWheel(angle);
+
       if (progress < 1) {
         requestAnimationFrame(frame);
       } else {
         spinning = false;
-        spinBtn.disabled    = false;
-        spinBtn.textContent = 'GIRAR RULETA';
-        showResult(angle);
+        spinBtn.disabled = false;
+        if (spinBtnText) spinBtnText.textContent = 'GIRAR RULETA';
+        spinBtn.classList.remove('spinning');
+
+        // Pointer bounce al parar
+        if (pointer) {
+          pointer.classList.remove('bouncing');
+          void pointer.offsetWidth; // reflow para reiniciar animación
+          pointer.classList.add('bouncing');
+          pointer.addEventListener('animationend', () => pointer.classList.remove('bouncing'), { once: true });
+        }
+
+        showResult(target);
       }
     }
 
     requestAnimationFrame(frame);
   }
 
-  function isYouTubeUrl(url) {
-    return url && (url.includes('youtube.com') || url.includes('youtu.be'));
-  }
-
   function renderVideo(videoUrl) {
     videoContainer.innerHTML = '';
-    
-    if (!videoUrl) {
-      videoContainer.style.display = 'none';
-      return;
+    if (!videoUrl) return;
+
+    let embedUrl = videoUrl;
+    if (videoUrl.includes('youtu.be/')) {
+      embedUrl = 'https://www.youtube.com/embed/' + videoUrl.split('youtu.be/')[1].split('?')[0];
+    } else if (videoUrl.includes('watch?v=')) {
+      embedUrl = 'https://www.youtube.com/embed/' + videoUrl.split('v=')[1].split('&')[0];
     }
 
-    videoContainer.style.display = 'block';
-
-    if (isYouTubeUrl(videoUrl)) {
-      let embedUrl = videoUrl;
-      
-      // Convertir URL estándar a embed si es necesario
-      if (videoUrl.includes('youtu.be/')) {
-        const videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
-        embedUrl = `https://www.youtube.com/embed/${videoId}`;
-      } else if (videoUrl.includes('watch?v=')) {
-        const videoId = videoUrl.split('v=')[1].split('&')[0];
-        embedUrl = `https://www.youtube.com/embed/${videoId}`;
-      }
-
-      const iframe = document.createElement('iframe');
-      iframe.width = '100%';
-      iframe.height = '400';
-      iframe.src = embedUrl;
-      iframe.frameBorder = '0';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
-      iframe.style.borderRadius = '12px';
-      videoContainer.appendChild(iframe);
-    } else {
-      // Si es video local, crear elemento <video>
-      const video = document.createElement('video');
-      video.width = '100%';
-      video.height = 'auto';
-      video.controls = true;
-      video.style.borderRadius = '12px';
-      
-      const source = document.createElement('source');
-      source.src = videoUrl;
-      source.type = 'video/mp4';
-      video.appendChild(source);
-      
-      const textNode = document.createTextNode('Tu navegador no soporta el elemento de video.');
-      video.appendChild(textNode);
-      
-      videoContainer.appendChild(video);
-    }
+    const iframe = document.createElement('iframe');
+    iframe.width         = '100%';
+    iframe.height        = '260';
+    iframe.src           = embedUrl;
+    iframe.frameBorder   = '0';
+    iframe.allow         = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'border-radius:12px;display:block;';
+    videoContainer.appendChild(iframe);
   }
 
-  function showResult(finalAngle) {
-    const pointer    = -Math.PI / 2;
-    const normalized = ((pointer - finalAngle) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
-    const idx        = Math.floor(normalized / ARC) % N;
-    const proposal   = PROPOSALS[idx];
-
+  function showResult(targetIdx) {
+    const proposal = PROPOSALS[targetIdx];
     titleEl.textContent = proposal.label;
     descEl.textContent  = proposal.desc;
     renderVideo(proposal.video);
 
-    resultDiv.style.display = 'block';
-    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (placeholder) placeholder.classList.add('hidden');
+    if (resultContent) {
+      resultContent.style.display = 'flex';
+      void resultContent.offsetWidth;
+      resultContent.classList.add('visible');
+    }
   }
 
   spinBtn.addEventListener('click', spin);
+  if (spinAgainBtn) spinAgainBtn.addEventListener('click', spin);
 
   /* ── COMPARTIR EN REDES ─────────────────────────────────── */
   window.compartirEnRedes = function(red) {
-    const text  = encodeURIComponent('¡Descubre las propuestas de Mónica Magaña, diputada por Jalisco! 🧡');
+    const text  = encodeURIComponent('¡Descubre las propuestas de Mónica Magaña, diputada por Jalisco!');
     const url   = encodeURIComponent(window.location.href);
     const links = {
       facebook:  `https://www.facebook.com/sharer/sharer.php?u=${url}`,
@@ -741,13 +781,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('modalImage').src = data.image;
     document.getElementById('modalImage').alt = data.title;
 
-    modal.style.display = 'block';
+    modal.classList.remove('is-closing');
+    modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    modal.classList.add('is-closing');
+    setTimeout(() => {
+      modal.classList.remove('is-open', 'is-closing');
+      document.body.style.overflow = '';
+    }, 240);
   }
 
   // Event listeners para items del timeline
@@ -772,7 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Cerrar con tecla ESC
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.style.display === 'block') {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
       closeModal();
     }
   });

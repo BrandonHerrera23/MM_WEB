@@ -68,27 +68,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 
 </head>
 
 <body>
 
+<a href="#main-content" class="skip-to-content">Saltar al contenido</a>
+<div class="grain-overlay" aria-hidden="true"></div>
+
 <a href="https://wa.me/5213318574935"
    target="_blank"
-   style="position:fixed;
-          bottom:20px;
-          right:20px;
-          background:#25D366;
-          padding:15px;
-          border-radius:50%;
-          text-decoration:none;
-          z-index:9999;">
-
-   <img src="img/whats.png"
-        alt="WhatsApp"
-        width="30" height="30"
-        style="width:30px;">
+   class="wa-float-btn"
+   aria-label="Escríbeme por WhatsApp">
+  <img src="img/whats.png" alt="WhatsApp" width="30" height="30">
 </a>
 
   <!-- ═══════════════════════════ FRANJA DE ANUNCIO ═══════════════════════════ -->
@@ -175,10 +168,34 @@
         <p class="about-body">
           Vivo con diabetes tipo 1 y me siento poderosa gracias a ustedes. Cuando ponemos todas nuestras ganas y convicción en hacer algo mejor por los demás, lo logramos. Aquí he estado siempre y aquí voy a seguir.
         </p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="stat-number">111,748</span>
+            <span class="stat-label">votos en 2024</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-number">13+</span>
+            <span class="stat-label">años en Zapopan</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-number">2×</span>
+            <span class="stat-label">diputada electa</span>
+          </div>
+        </div>
+
         <ul class="about-badges">
-          <li>🎓 Maestra por la George Washington University</li>
-          <li>🏛️ Presidenta de la Comisión de Salud · Congreso de Jalisco</li>
-          <li>🌟 Expresidenta del Congreso de Jalisco</li>
+          <li>
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Maestra por la George Washington University
+          </li>
+          <li>
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            Presidenta de la Comisión de Salud · Congreso de Jalisco
+          </li>
+          <li>
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            Expresidenta del Congreso de Jalisco
+          </li>
         </ul>
       </div>
     </div>
@@ -277,12 +294,13 @@
 
     <div class="world-list">
 
-      <div class="world-item">
+      <div class="world-item world-item--featured">
         <div class="world-meta">
           <span class="world-place">Washington, D.C.</span>
           <span class="world-year">2026</span>
         </div>
         <div class="world-body">
+          <span class="world-featured-badge">Primera legisladora invitada</span>
           <h3 class="world-title">Organización Panamericana de la Salud</h3>
           <p class="world-desc">Primera legisladora invitada en la historia a hablar ante el Consejo Directivo de la OPS, como representante de UNITE, la red global de parlamentarios por la salud. Presenté como caso de éxito las leyes de Jalisco en cáncer infantil, cáncer en mujeres, diabetes tipo 1 y autismo, y por qué tener presupuesto garantizado por ley hace la diferencia.</p>
         </div>
@@ -542,7 +560,7 @@
     </div>
 
     <!-- MODAL POPUP PARA DETALLES -->
-    <div class="timeline-modal" id="timelineModal" style="display: none;">
+    <div class="timeline-modal" id="timelineModal">
       <div class="modal-overlay"></div>
       <div class="modal-content">
         <button class="modal-close" id="modalClose">&times;</button>
@@ -564,24 +582,33 @@
   <!-- ═══════════════════════════ RULETA DE PROPUESTAS ═══════════════════════════ -->
   <section class="wheel-section" id="ruleta">
     <div class="wheel-header">
-      <h2 class="section-title light">Gira la ruleta y conoce mi trabajo</h2>
+      <span class="section-label light">Propuestas</span>
+      <h2 class="section-title light">Gira y descubre mi trabajo</h2>
     </div>
 
     <div class="wheel-container">
-      <div class="wheel-canvas-wrap">
-        <canvas id="wheelCanvas" width="400" height="400"></canvas>
-        <button class="wheel-spin-btn" id="spinBtn">GIRAR RULETA</button>
-        <div class="wheel-pointer"></div>
+      <div class="wheel-left-col">
+        <div class="wheel-canvas-wrap">
+          <canvas id="wheelCanvas" width="440" height="440"></canvas>
+          <div class="wheel-pointer"></div>
+        </div>
+        <button class="wheel-spin-btn" id="spinBtn">
+          <span id="spinBtnText">GIRAR RULETA</span>
+        </button>
       </div>
 
-      <div class="wheel-result" id="wheelResult" style="display: none;">
-        <div class="result-content">
+      <div class="wheel-result" id="wheelResult">
+        <div class="result-placeholder" id="resultPlaceholder">
+          <div class="result-placeholder-icon">↻</div>
+          <p>Gira para descubrir una de mis leyes, programas o logros reales.</p>
+        </div>
+        <div class="result-content" id="resultContent">
           <div class="result-proposal" id="proposalTitle"></div>
           <p id="proposalDesc" class="proposal-desc"></p>
-          <div id="proposalVideoContainer" style="border-radius: 12px; margin-top: 15px; overflow: hidden;"></div>
+          <div id="proposalVideoContainer"></div>
           <div class="result-actions">
-            <button class="btn-primary" onclick="document.getElementById('spinBtn').click()">Girar de Nuevo</button>
-            <button class="btn-secondary" onclick="compartirEnRedes('propuesta'); return false;">Compartir 📲</button>
+            <button class="btn-primary" id="spinAgainBtn">Girar de Nuevo</button>
+            <button class="btn-secondary result-share-btn" onclick="compartirEnRedes('propuesta'); return false;">Compartir</button>
           </div>
         </div>
       </div>
