@@ -68,7 +68,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 
 </head>
 
@@ -123,29 +123,29 @@
 
   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
   <section class="hero" id="inicio">
-    <!-- Video de fondo — reemplaza src con tu video -->
-    <video class="hero-video" autoplay muted loop playsinline poster="img/Monica.jpg">
-      <source src="img/VideoFondo.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-overlay"></div>
 
-    <div class="hero-content">
-      <p class="hero-eyebrow">Diputada Local · Distrito 10 de Zapopan</p>
-      <h1 class="hero-name">
-        <span class="name-first">MÓNICA</span>
-        <span class="name-last">MAGAÑA</span>
+    <!-- Columna izquierda: identidad + CTAs -->
+    <div class="hero-left">
+      <span class="hero-chip">5° Informe Legislativo · 2024–2025</span>
+      <h1 class="hero-headline">
+        <em>Siempre</em><br>Zapopan.
       </h1>
-      <p class="hero-tagline">Siempre Zapopan</p>
-      <div class="hero-ctas">
+      <p class="hero-sub">Diputada Local · Distrito 10 · Jalisco</p>
+      <div class="hero-actions">
         <a href="#sobre-mi" class="btn-primary">Conóceme</a>
         <a href="#timeline" class="btn-secondary">Mi trayectoria</a>
       </div>
     </div>
 
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+    <!-- Columna derecha: panel de campaña -->
+    <div class="hero-right">
+      <img src="img/hero_poster.jpg"
+           alt="Mónica Magaña — Diputada Local Distrito 10 de Zapopan"
+           class="hero-img"
+           fetchpriority="high"
+           decoding="async" />
     </div>
+
   </section>
 
   <!-- ═══════════════════════════ SOBRE MÍ ═══════════════════════════ -->
