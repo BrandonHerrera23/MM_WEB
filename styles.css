@@ -365,14 +365,14 @@ section[id] {
 .hero-right {
   position: relative;
   overflow: hidden;
-  background: #f5ece0;
+  background: #1a1612;
 }
 
 .hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% center;
+  object-position: center 15%;
   display: block;
   opacity: 0;
   animation: fadeIn 0.8s ease 600ms forwards;
