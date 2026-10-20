@@ -318,7 +318,7 @@ section[id] {
   padding: 0.4rem 0.9rem;
   border-radius: 2px;
   align-self: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   opacity: 0;
   animation: fadeUp 0.6s var(--ease-out) 80ms forwards;
 }
@@ -343,11 +343,11 @@ section[id] {
 }
 
 .hero-sub {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.55);
   margin-bottom: 2.75rem;
   opacity: 0;
   animation: fadeUp 0.65s var(--ease-out) 320ms forwards;
@@ -372,7 +372,7 @@ section[id] {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 28%;
   display: block;
   opacity: 0;
   animation: fadeIn 0.8s ease 600ms forwards;
@@ -415,7 +415,7 @@ section[id] {
     height: 52dvh;
   }
   .hero-img {
-    object-position: 50% 18%;
+    object-position: 50% 28%;
   }
   /* Texto abajo */
   .hero-left {
